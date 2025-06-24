@@ -13,5 +13,5 @@ Il est probable qu'il faille recharger la page lorsque l'on clique sur un lien `
 
 
 Les modèles pour démarer
-- Quickstart (court) [[html](slides/quickstart-court.html)] [[pdf](slides/quickstart-court.pdf)]
-- Quickstart (long)  [[html](slides/quickstart-long.html)] [[pdf](slides/quickstart-long.pdf)]
+- Quickstart (_short_) [[html](slides/quickstart-short.html)] [[pdf](slides/quickstart-short.pdf)]
+- Quickstart (_long_)  [[html](slides/quickstart-long.html)] [[pdf](slides/quickstart-long.pdf)]
