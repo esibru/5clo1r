@@ -29,13 +29,15 @@ export default defineConfig({
             {
                 text: '…',
                 items: [
-                    { text: 'Organisation', link: '/organisation' }            
+                    { text: 'Organisation', link: '/organisation' },
+                    { text: 'Slides', link: 'slides' },
+                    { text: 'Sources', link: '/sources' }
                 ]
             }
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/pbettens/hypervirtualisation' }
+            { icon: 'github', link: 'https://github.com/esibru/5clo1r' }
         ],
 
         lastUpdated: {
