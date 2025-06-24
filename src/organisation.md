@@ -2,7 +2,10 @@
 
 _organisation des cours / labos_
 
-2 ECTS
+[Fiche ECTS](ects.md)
+
+
+
 
 _**À travailler / casser**_
 
@@ -19,6 +22,24 @@ _**À travailler / casser**_
 |6       | ingress
 | | **?**  | 
 
+
+### autre proposition 
+
+
+| Séance | Module | Thème de la Séance | Objectifs d'Apprentissage | Activité Pratique (Lab) |
+| :---: | :---: | :--- | :--- | :--- |
+| **1** | 1 | **Introduction à la Conteneurisation** | Comprendre les conteneurs. Différencier VM et conteneur. | Écrire un Dockerfile, builder et lancer une image. |
+| **2** | 1 | **Introduction à Kubernetes** | Découvrir l'orchestration. Comprendre l'architecture K8s. | Installer kubectl & Minikube. Explorer un cluster local. |
+| **3** | 1 | **Pods & Deployments** | Maîtriser les objets Pod et Deployment. Gérer le state. | Créer des Pods et des Deployments en YAML. Scaler. |
+| **4** | 2 | **Services & Découverte** | Exposer des applications. Utiliser les labels et selectors. | Créer des Services (ClusterIP, NodePort). |
+| **5** | 2 | **Configuration & Secrets** | Gérer la configuration (ConfigMaps) et les secrets. | Injecter des variables et des fichiers de configuration. |
+| **6** | 2 | **Stockage Persistent** | Comprendre la gestion du stockage (PV, PVC, StorageClass). | Monter un volume persistent dans un Pod. |
+| **7** | 3 | **Introduction au Cloud (AKS)** | Découvrir les services K8s managés. | Créer un cluster AKS. Se connecter avec kubectl. |
+| **8** | 3 | **Réseau Avancé : Ingress** | Gérer le trafic entrant. Comprendre les Ingress Controllers. | Déployer un Ingress pour router le trafic vers 2 services. |
+| **9** | 3 | **Sécurité : RBAC & Policies** | Gérer les accès (RBAC). Isoler les Pods (Network Policies). | Créer un utilisateur avec droits limités. Isoler un Pod. |
+| **10** | 4 | **Gestion de Paquets avec Helm** | Simplifier les déploiements complexes avec Helm. | Installer une application (e.g., WordPress) via un Chart Helm. |
+| **11** | 4 | **Infrastructure as Code (IaC)** | Provisionner l'infrastructure de manière déclarative. | Écrire un script Terraform pour créer un cluster AKS. |
+| **12** | 4 | **CI/CD & Projet de Synthèse** | Construire un pipeline CI/CD complet. | Pipeline GitHub Actions : build -> push -> deploy. |
 
 ### proposition de chatgpt
 
