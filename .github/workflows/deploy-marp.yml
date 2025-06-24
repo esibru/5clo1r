@@ -3,8 +3,7 @@ name: Generate PDF and HTML for Slides
 on:
   push:
     branches: [main]
-    paths:
-      - 'slides/**'
+    
   workflow_dispatch:
 
 jobs:
@@ -31,8 +30,16 @@ jobs:
           marp "$file" --html --output "output/$(basename "${file%.md}.html")"
         done
 
+    - name: Copy files to GitHub Pages directory
+      run: |
+        mkdir -p gh-pages/slides
+        cp -r output/* gh-pages/slides/
+
+
     - name: Upload artifacts
       uses: actions/upload-pages-artifact@v3
       with:
         name: slides-output
         path: ./output/
+
+
