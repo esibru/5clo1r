@@ -32,8 +32,8 @@ jobs:
 
     - name: Copy files to GitHub Pages directory
       run: |
-        mkdir -p gh-pages/slides
-        cp -r output/* gh-pages/slides/
+        mkdir -p public/slides
+        cp -r output/* public/slides/
 
 
     - name: Upload artifacts
