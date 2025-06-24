@@ -124,6 +124,16 @@ style: |
 ---
   
   
-# CLO ~ Cloud Computing
+# Cloud computing
 
-Plop
+
+![bg](images/on_the_cloud_by_zusima_djffm5e.png)
+
+<!-- 
+_class: highlight
+_footer: ''
+_paginate: false
+-->
+
+# Cloud computing
+
