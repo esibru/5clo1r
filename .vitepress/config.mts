@@ -7,7 +7,7 @@ export default defineConfig({
     titleTemplate: 'CLO1 - :title',
     description: "Notes de cours",
     lang: 'fr-be',
-    base: '/cloudcomputing',
+    base: '/5clo1r',
     srcDir: './src',
     outDir: './public',
     lastUpdated: true,
