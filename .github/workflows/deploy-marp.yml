@@ -1,0 +1,37 @@
+name: Generate PDF and HTML for Slides
+
+on:
+  push:
+    paths:
+      - 'slides/**'
+  workflow_dispatch:
+
+jobs:
+  build-slides:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install Marp CLI
+      run: npm install -g @marp-team/marp-cli
+
+    - name: Generate PDF and HTML
+      run: |
+        mkdir -p output
+        for file in slides/*.md; do
+          marp "$file" --pdf --output "output/$(basename "${file%.md}.pdf")"
+          marp "$file" --html --output "output/$(basename "${file%.md}.html")"
+        done
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: slides-output
+        path: output/
