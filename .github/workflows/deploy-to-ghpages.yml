@@ -50,6 +50,7 @@ jobs:
             marp "$file" --pdf --output "public/slides/$(basename "${file%.md}.pdf")"
             marp "$file" --html --output "public/slides/$(basename "${file%.md}.html")"
           done
+          cp slides/images/* public/slides/images/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
