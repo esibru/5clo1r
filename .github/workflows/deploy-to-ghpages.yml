@@ -45,12 +45,12 @@ jobs:
         run: npm install -g @marp-team/marp-cli
       - name: Generate PDF and HTML
         run: |
-          mkdir -p public/slides
-          for file in slides/*.md; do
-            marp "$file" --pdf --output "public/slides/$(basename "${file%.md}.pdf")"
-            marp "$file" --html --output "public/slides/$(basename "${file%.md}.html")"
-          done
+          mkdir -p public/slides/images
           cp slides/images/* public/slides/images/
+          for file in slides/*.md; do
+            marp "$file" --pdf --allow-local-files --output "public/slides/$(basename "${file%.md}.pdf")"
+            marp "$file" --html --allow-local-files --output "public/slides/$(basename "${file%.md}.html")"
+          done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
