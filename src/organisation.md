@@ -2,7 +2,7 @@
 
 _organisation des cours / labos_
 
-2ECTS
+2 ECTS
 
 _**À travailler / casser**_
 
