@@ -222,9 +222,9 @@ La **Cloud Native Computing Foundation (CNCF)** est un projet de la Linux Founda
 
 # Kubernetes - Pod
 
-Un **Pod** est l'unité d'exécution de base d'une application Kubernetes — l'unité la plus petite et la plus simple dans le modèle d'objets de Kubernetes — que vous créez ou déployez. 
+Un **pod** est l'unité d'exécution de base d'une application Kubernetes — l'unité la plus petite et la plus simple dans le modèle d'objets de Kubernetes — que vous créez ou déployez. 
 
-Un Pod représente des process en coursd'exécution dans votre cluster.
+Un pod représente des _process_ en cours d'exécution dans votre cluster.
 
 --- 
 ![w:70% center](images/pod-status.png)
@@ -263,7 +263,7 @@ sensible telles que les mots de passe, jetons Oauth, clé ssh, etc.
 # Kubernetes - Stockage
 
 **Ephemeral Volume**
-- Lié a la vie du pod, il est détruit quand le pod se termine
+- Lié à la vie du pod, il est détruit quand le pod se termine
 - Utilisation type
     - ReplicaSet, il fournit espace disque temporaire nécessaire a l’exécution de l’application, le volume est propre a chaque pod
 
