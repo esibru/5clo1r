@@ -137,3 +137,7 @@ _paginate: false
 
 # Cloud computing
 
+<!--class: caution-->
+> **Title**
+>
+> Ce que j'ai à dire

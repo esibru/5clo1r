@@ -22,7 +22,17 @@ export default defineConfig({
             {
                 text: 'Cours',
                 items: [
-                    { text: 'À voir', link: '/index' },
+                    { text: 'Introduction', link: '/index' },
+                    { text: 'Séance 1', link: '/seance-1' },
+                    { text: 'Séance 2', link: '/seance-2' },
+                    { text: 'Séance 3', link: '/seance-3' },
+                    { text: 'Séance 4', link: '/seance-4' },
+                    { text: 'Séance 5', link: '/seance-5' },
+                    { text: 'Séance 6', link: '/seance-6' },
+                    { text: 'Séance 7', link: '/seance-7' },
+                    { text: 'Séance 8', link: '/seance-8' },
+                    { text: 'Séance 9', link: '/seance-9' },
+
                     
                 ]
             },
