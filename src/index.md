@@ -1,7 +1,5 @@
 # Cloud infrastructure
 
-_to do_
-
 ## Introduction au _cloud infrastructure_
 
 Le _cloud computing_ désigne la fourniture de services informatiques — y compris les serveurs, le stockage, les bases de données, le réseau, les logiciels, et plus encore — via Internet (« _le cloud_ »). Elle permet aux organisations et aux particuliers d'accéder à des ressources et de les gérer à la demande, sans avoir à posséder d'infrastructure physique. Cette approche offre évolutivité, flexibilité et efficacité économique, ce qui en fait un pilier des solutions informatiques modernes.

@@ -1,12 +1,8 @@
 # Séance 6
 
-```tip
+:::info
 Je donne des paramètres avant la création de mon _pod_ pour avoir des containers différents.
-```
-
-```info
-Je donne des paramètres avant la création de mon _pod_ pour avoir des containers différents.
-```
+:::
 
 
 **Configuration & Secrets**

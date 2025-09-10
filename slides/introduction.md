@@ -122,10 +122,12 @@ style: |
       background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2Ij48cGF0aCBkPSJNNC40Ny4yMkEuNzQ5Ljc0OSAwIDAgMSA1IDBoNmMuMTk5IDAgLjM4OS4wNzkuNTMuMjJsNC4yNSA0LjI1Yy4xNDEuMTQuMjIuMzMxLjIyLjUzdjZhLjc0OS43NDkgMCAwIDEtLjIyLjUzbC00LjI1IDQuMjVBLjc0OS43NDkgMCAwIDEgMTEgMTZINWEuNzQ5Ljc0OSAwIDAgMS0uNTMtLjIyTC4yMiAxMS41M0EuNzQ5Ljc0OSAwIDAgMSAwIDExVjVjMC0uMTk5LjA3OS0uMzg5LjIyLS41M1ptLjg0IDEuMjhMMS41IDUuMzF2NS4zOGwzLjgxIDMuODFoNS4zOGwzLjgxLTMuODFWNS4zMUwxMC42OSAxLjVaTTggNGEuNzUuNzUgMCAwIDEgLjc1Ljc1djMuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTMuNUEuNzUuNzUgMCAwIDEgOCA0Wm0wIDhhMSAxIDAgMSAxIDAtMiAxIDEgMCAwIDEgMCAyWiI+PC9wYXRoPjwvc3ZnPg==");
     }
 ---
-  
+
   
 # Cloud infrastructure
+<br />
 
+## Kubernetes
 
 ![bg](images/on_the_cloud_by_zusima_djffm5e.png)
 
@@ -135,98 +137,164 @@ _footer: ''
 _paginate: false
 -->
 
----
-
-<div class="columns">
-<div>
-
-**Antoine Patte**  
-_apt_
-
-#️⃣ irc.libera.chat / #esi
-📬 apatte@he2b.be
-🗨️ physiquement / _gchat_ / Discord
-
-</div>
-<div>
-
-**Pierre Bettens**  
-_pbt_
-
-#️⃣ irc.libera.chat / #esi
-📬 pbettens@he2b.be
-🗨️ physiquement / _gchat_ / Discord
-
-</div>
-
-</div>
-
-<!--
-_header: 'CLO1r - Cloud infrastructure'
--->
-
 
 ---
 
-![](images/grille-cut-1.png)
-![](images/grille-cut-2.png)
+![bg width:95%](images/billy.png)
 
-<!--
-_paginate: false
-_footer: ''
-_header: ''
--->
+
 
 # Cloud infrastructure
 
-<div class=columns>
-<div>
-Cours / laboratoire 
+![](images/timeline-1.png)
 
-_Présentation orale_  
-_Manipulation sur machine_
-
-</div><div>
-
-|Détails |ECTS| Heures
-|--|--|--
-|| 2 | 24
-
-</div></div>
-<br/>
-<br/>
-
-[Fiche ECTS](https://ects.esi-bru.be/online/cours/ac2526_5clo1r_5clo1r.html)
 
 # Cloud infrastructure
 
-Support de cours 
-
-- Ces _slides_
-- Des notes et des supports pour les exercices 
-[esibru.github.io/5clo1r](https://esibru.github.io/5clo1r)
+![](images/infraascode.png)
 
 
-# Évaluation
-<br />
-
-Défense orale individuelle du travail à faire.
-À chaque séance et/ou lors de la défense finale. 
-
-<br/>
-
-Seconde session : présentation de toutes les séances.
-
-![bg](images/omg_spaghetti_o__s_by_billyunderscorebwa.jpg)
-
-<!--
-_header: ''
-_footer: ''
-_paginate: ''
-_class: highlight
--->
 
 # Cloud infrastructure
 
-Le sujet principal est _kubernetes_ **K8S**. 
+![](images/timeline-2.png)
 
+
+# Cloud infrastructure
+
+![center](images/podman-lxc-docker.png)
+
+
+# Cloud infrastructure
+
+![](images/timeline-3.png)
+
+# Cloud infrastructure
+
+![center](images/kubernetes-redhat-rke.png)
+
+
+# Cloud infrastructure
+
+![](images/timeline-4.png)
+
+
+# Kubernetes
+
+**Kubernetes (K8s)** est un système open source pour automatiser le déploiement, la montée en charge et la gestion de conteneurs d’application sur des grappes de serveurs.
+
+- Fonctionne avec plusieurs technologies de conteneurisation
+- Souvent utilisé avec Docker
+- Créé par Google en 2014
+- Offert à CNCF (_cloud native computing fundation_) en 2015
+
+
+# Kubernetes 
+
+🚀 déploiements de conteneurs : automatisation de cette étape, en simplifiant les paramétrages.
+⚖️ équilibrage de charge : répartition du trafic réseau entre les conteneurs pour équilibrer la charge.
+💾 gestion de l’état : facilitation de la gestion des applications, en assurant que les données restent accessibles même en cas de redémarrage des conteneurs.
+
+# Kubernetes 
+
+🔄 auto-réparation : surveillance temps réel de l’état des applications, avec redémarrage automatique des conteneurs en échec, lancement ou arrêt des services en fonction des politiques définies.
+🌐 découverte de services et mise en réseau : attribution des adresses IP aux conteneurs, attribution de noms DNS uniques pour un groupe de conteneurs…
+📊 monitoring : donne aux administrateurs les informations sur le fonctionnement des conteneurs.
+
+
+# CNCF - _Cloud Native Computing Foundation_
+
+La **Cloud Native Computing Foundation (CNCF)** est un projet de la Linux Foundation qui a été fondé en 2015 pour aider à faire progresser la technologie des conteneurs et rassembler les industries technologiques autour de son évolution.
+
+| 🚀 206 projets | 👥 276k contributeurs | 📈 19,6m contributions | 🌍 192 pays |
+|--|--|--|--
+
+
+---
+
+![bg w:83% center](images/kubernetes-diagramme.png)
+
+
+# Kubernetes 
+
+![w:820 center](images/kubernetes-versus-docker.png)
+
+
+# Kubernetes - Pod
+
+Un **Pod** est l'unité d'exécution de base d'une application Kubernetes — l'unité la plus petite et la plus simple dans le modèle d'objets de Kubernetes — que vous créez ou déployez. 
+
+Un Pod représente des process en coursd'exécution dans votre cluster.
+
+--- 
+![w:70% center](images/pod-status.png)
+
+
+
+# Kubernetes - Deployment 
+
+![w:850 center](images/statefull-stateless.png)
+
+# Kubernetes - Deployment 
+
+**ReplicaSet** : Maintient un ensemble stable de pods pour une application **sans état** (_stateless_)
+
+**StateFulSet** : Gère un ensemble stable de Pods pour une application **avec état** (_statefull_)
+
+**DaemonSet** : Garantit que tous les nodes exécutent un pod donné
+
+---
+![center](images/pod-1.png)
+
+# Kubernetes - Configuration
+
+**ConfigMaps** 
+
+- objet kubernetes qui permet de gérer la configuration d'une application;
+- permet de dissocier l'application de ses fichiers de config (évite la configuration dans le code de l'application);
+- permet d'assurer la portabilité de l'application.
+
+
+**Secret** 
+
+- objet kubernetes qui permet de gérer des informations
+sensible telles que les mots de passe, jetons Oauth, clé ssh, etc.
+
+# Kubernetes - Stockage
+
+**Ephemeral Volume**
+- Lié a la vie du pod, il est détruit quand le pod se termine
+- Utilisation type
+    - ReplicaSet, il fournit espace disque temporaire nécessaire a l’exécution de l’application, le volume est propre a chaque pod
+
+**Persistant Volume**
+- N’est pas lié a la vie du pod, il est conservé quand le pod se termine
+- Utilisation type
+    - StateFulSet : chaque pod a son propre espace disque.
+    - ReplicaSet quand ils ont besoin d ‘un espace d’echange commun
+
+---
+![center](images/pod-2.png)
+
+# Kubernetes - Réseau
+
+**Service**
+- manière abstraite d'exposer une application s'exécutant sur un
+ensemble de Pods en tant que service réseau
+
+**Ingress**
+- objet Kubernetes qui gère l'accès externe aux services
+dans un cluster; généralement du trafic HTTP, un équilibrage de charge, une terminaison TLS et un hébergement virtuel;
+- un Ingress utilise un Service pour acceder aux Pods
+
+
+---
+![center w:840](images/pod-3.png)
+
+
+# Docker _versus_ Kubernetes
+
+
+| Docker  | Kubernetes
+|:-- |:--
+|Exécution de conteneurs, création, test, déploiement rapide. |Orchestration de conteneurs, mise à l'échelle, gestion et planification à grande échelle.

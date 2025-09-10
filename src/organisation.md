@@ -2,7 +2,7 @@
 
 _organisation des cours / labos_
 
-[Fiche ECTS](ects.md)
+[Fiche ECTS](https://ects.esi-bru.be/online/cours/ac2526_5clo1r_5clo1r.html)
 
 
 ## Planning
@@ -10,22 +10,15 @@ _organisation des cours / labos_
 
 | Séance | Thème de la Séance | Objectifs d'Apprentissage | Activité Pratique (Lab) |
 | :---: | :--- | :--- | :--- |
-| **1** | **Introduction à la Conteneurisation et Kubernetes** | Comprendre les conteneurs. Différencier VM et conteneur. Découvrir l'orchestration. Comprendre l'architecture K8s (et Minikube).| Installer Minikube. |
-| **2** | **Installation de k3s** | _Avoir un k3s et un pod qui tourne_| Installer k3s sur le serveur du groupe. Lancer un premier _pod_
-| **3** | **Pods & Deployments** | Maitriser les objets Pod et Deployment. Gérer le state. (replicat set, statefull set, daemon set). Scalability | Créer des Pods et des Deployments en YAML. Scaler. Ajouter port forward pour voir le pod |
-| **4** | **Services & accès** | _Trouver le service_ Exposer des applications. Donner une IP et un port forwarding. Utiliser les labels et **selectors**. | Créer des Services (ClusterIP (ip interne donc port forward), NodePort (port binder sur le worker)). |
-| **5** | **Réseau Avancé : Ingress** | Gérer le trafic entrant. Comprendre les Ingress Controllers. | Déployer un Ingress pour router le trafic vers 2 services. _Le pod est accessible de l'extérieur_|
-| **6** | **Configuration & Secrets** | Gérer la configuration (ConfigMaps) et les secrets. | Injecter des variables et des fichiers de configuration. _Utilisation d'une image par couleur. ensuite la couleur sera passée au conteneur en tant que variable_|
+| **1** | **Introduction à la conteneurisation et Kubernetes** | Comprendre les conteneurs. <br/>Différencier VM et conteneur. <br/>Découvrir l'orchestration. <br/>Comprendre l'architecture K8s (et Minikube).| Installer Minikube sur sa machine perso. |
+| **2** | **Installation de k3s** | _Avoir un k3s et un pod qui tournent_| Installer k3s sur le serveur du groupe. Lancer un premier individuellement un premier _pod_
+| **3** | **_Pods & deployments_** | Maitriser les objets de type (_kind_) _pod_ et _deployment_. <br/>Gérer l'état (_state_). <br/>Mise à l'échelle (_scalability_) | Créer des _pods_ et des  _deployments_ en YAML. <br/>Mettre à l'échelle (_scaler_). Ajouter _port forward_ pour accéder aux _pods_ créés|
+| **4** | **Services & accès** | Exposer des applications. <br/>Donner une IP et un _port forwarding_. <br/>Utiliser les labels et des sélecteurs (_selectors_). | Créer des Services (`ClusterIP`, `NodePort`). |
+| **5** | **Réseau avancé : ingress** | Gérer le trafic entrant et comprendre les _Ingress controllers_. | Déployer un _ingress_ pour router le trafic vers 2 services. _Le pod est accessible de l'extérieur_|
+| **6** | **Configuration & secrets** | Gérer la configuration (`ConfigMaps`) et les secrets. | Injecter des variables et des fichiers de configuration. |
 | **7** | **Stockage Persistent** | Comprendre la gestion du stockage (PV, PVC, StorageClass). | Monter un volume persistent dans un Pod. |
-| **8** | **Gestion de paquets helm** (moteur de template écrit en go) et **CI/DI** ||
-| **9** à **12** | **Petit projet de synthèse** ||
-
-un pod est la plus petite unité. un pod contient des conteneurs. 
-configmap (fichier yaml) ou variable d'environnement
-
-prévoir la documentation quelque part
-
-
+| **8** | **Gestion de paquets helm** et **CI/DI** |Comprendre le moteur de template Helm|
+| **9** à **12** | **Petit projet de synthèse** ||_à déterminer_
 
 **Total :** 24 heures de formation
 

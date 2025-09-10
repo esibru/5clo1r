@@ -15,37 +15,33 @@
 * Format du cours : laboratoire
 * Langue d’instruction : français
 * Implantation : HE2B – ESI
-* Pré-requis : *aucun*
+* Pré-requis : 3TRE1ir
 * Co-requis : *néant*
 
-_Avertissement : Bien qu'il n'y ait aucun prérequis officiel, il s'agit bien d'un cours de BLOC 3 qui suppose des connaissances en réseau de niveau CCNA1 et CCNA2 ainsi que de l'administration système._
+_Avertissement : Bien qu'il n'y ait qu'un seul prérequis officiel, le cours nécessite également des connaissances en administration système sous linux._
 
 ## Description générale du cours
 
-Ce cours initie les étudiantes et étudiants aux principes de l’infrastructure cloud moderne. À travers des activités pratiques, les participants découvrent Kubernetes et son usage en production. Dans la mesure du possible des parallèles sont fait avec les services équivalents chez Microsoft, Amazon et Google.
+Ce cours vise à initier les étudiants et les étudiantes à la mise en œuvre concrète du cloud computing à travers l'orchestration de conteneurs avec Kubernetes (K8s). Le cours mettra l'accent sur l'utilisation de Kubernetes comme plateforme centrale pour déployer, gérer et faire évoluer des applications dans des environnements cloud, en exploitant les fonctionnalités offertes par les principaux fournisseurs de services cloud. Dans la mesure du possible des parallèles sont fait avec les services équivalents chez Microsoft, Amazon et Google.
 
 ## Objectifs généraux
 
 Au terme de l’activité d’apprentissage, l’étudiante ou l’étudiant est en mesure de :
 
-_todo : à adapter_
-
 * comprendre les concepts fondamentaux de la conteneurisation et de l’orchestration;
 * créer et appliquer des configurations Kubernetes pour déployer et gérer des applications;
 * analyser et résoudre des problématiques liées au stockage, au réseau et à la sécurité dans un cluster;
 * évaluer les avantages des solutions managées dans le cloud;
-* créer et automatiser une infrastructure déclarative avec Terraform et Helm;
+* créer et automatiser une infrastructure déclarative avec Helm;
 * développer un pipeline CI/CD pour le déploiement d’applications dans un environnement cloud.
 
 ## Acquis d’apprentissage spécifiques sanctionnés par l’évaluation
 
 Au terme des séances, l’étudiante ou l’étudiant est évalué sur sa capacité à :
 
-_todo : à adapter_ 
-
-* configurer et gérer des Pods, Deployments et Services Kubernetes;
+* configurer et gérer des pods, deployments et services Kubernetes;
 * intégrer des ConfigMaps, Secrets et volumes persistants;
-* déployer des applications via Helm et provisionner une infrastructure avec Terraform.
+* déployer des applications via Helm. 
 * concevoir et défendre un pipeline CI/CD complet (build → test → déploiement).
 
 ## Acquis terminaux visés
