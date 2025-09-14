@@ -3,7 +3,7 @@ import footnote from 'markdown-it-footnote'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "Cloud computing",
+    title: "Cloud infrastructure",
     titleTemplate: 'CLO1 - :title',
     description: "Notes de cours",
     lang: 'fr-be',
