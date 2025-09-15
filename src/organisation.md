@@ -2,6 +2,14 @@
 
 _organisation des cours / labos_
 
+Chaque séance est constituée d'une présentation de la séance avec, éventuellement, une présentation théorique et de diverses tâches à faire. 
+
+Le planning informatif se trouve ci-dessous, les tâches a faire dans les différentes sections _Séance `i`_. 
+
+:::danger
+Nous demandons de tenir à jour un rapport d'activités au fur et à mesure des séances. 
+:::
+
 [Fiche ECTS](https://ects.esi-bru.be/online/cours/ac2526_5clo1r_5clo1r.html)
 
 
