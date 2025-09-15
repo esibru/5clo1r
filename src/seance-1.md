@@ -23,6 +23,7 @@ Exécutez un conteneur Docker en utilisant l'image suivante:
 |Le conteneur doit être nommé _esicloud_.  
 |L'application dans le conteneur écoute sur le port TCP/5000.
 |Exposer ce port interne sur le port TCP/8080 de la machine locale.
+|Le conteneur doit être visible dans son navigateur
 
 :::warning Question
 Quelle commande Docker faut-il utiliser ?
