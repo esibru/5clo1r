@@ -24,7 +24,7 @@
 ### Tâche:
 
 Exécutez un conteneur Docker en utilisant l'image suivante:  
-docker.io/patteantoine/5clo1r:tagnam
+docker.io/patteantoine/5clo1r:tagname
 
 ### Exigence:
 
