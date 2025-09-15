@@ -21,6 +21,18 @@
 <br/>
 <br/>
 
-_todo_
+### Tâche:
 
-- rappeler comment lancer docker et l'app python/flask qui montre le conteneur 
+Exécutez un conteneur Docker en utilisant l'image suivante:  
+docker.io/patteantoine/5clo1r:tagnam
+
+### Exigence:
+
+Le conteneur doit être nommé "esicloud".  
+L'application dans le conteneur écoute sur le port TCP/5000.
+
+Vous devez exposer ce port interne sur le port TCP/8080 de votre machine locale.
+
+### Question:
+
+Quelle commande Docker faut-il utiliser ?
