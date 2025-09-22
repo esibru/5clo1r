@@ -50,4 +50,6 @@ Installation de Linux/Debian sur un serveur du local.
 |Adresse IP : cfr. document interne
 |Nom de domaine : au choix
 
+Afin de permettre l'accès distant, installez le serveur OpenSSH.
 
+Si un environnement graphique est présent après l'installation initiale, supprimez-le en nettoyant les paquets lightdm et xfce4.
