@@ -18,6 +18,7 @@
 Une fois l'installation de K3S réalisée, la suite des tâches est individuelle.
 :::
 
+
 ### Tâche 2
 
 Lancer un premier Pod de manière impérative en utilisant l'image suivante : [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) avec la commande `kubectl run`.
@@ -26,9 +27,9 @@ Lancer un premier Pod de manière impérative en utilisant l'image suivante : [d
 Un accès SSH est nécessaire pour réaliser cette tâche à distance, elle se fait via l'utilisateur _root_.
 :::
 
-|**Exigence**
+|**Exigences**
 |:--|
-|Le _pod_ doit être nommé `<shortname>-imperatif`, où `<shortname>` est un placeholder pour votre identifiant utilisateur.
+|Le _pod_ doit être nommé `<shortname>-imperatif`, où `<shortname>` est un placeholder pour votre identifiant utilisateur (_aka_ votre matricule composé de 5 chiffres).
 |Le _pod_ doit avoir le label `app=pod-imperatif`.
 
 
@@ -60,7 +61,7 @@ spec:
       image: nginx
 ```
 
-|**Exigence**
+|**Exigences**
 |:--|
 |Le _pod_ doit être nommé `<shortname>-declaratif`, ou `<shortname>` est un placeholder pour votre identifiant utilisateur.
 |Le _pod_ doit avoir le label `app: pod-declaratif`.
@@ -69,7 +70,7 @@ spec:
 :::warning Questions
 Quel est le contenu du fichier YAML pour le déploiement et quelle commande kubectl faut-il utiliser ?  
 
-Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl.
+Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl adéquate.
 :::
 
 ### Tâche 4
@@ -98,9 +99,9 @@ Quelle commande kubectl faut-il utiliser ?
 Listez les différents _ServiceAccount_ dans le _NameSpace_ invidivuel ainsi que sur l'ensemble de l'environnment _kubernetes_ à l'aide de la commande kubectl.
 :::
 
-Creation d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé à l'aide de la commande `kubectl create clusterrolebinding`, il se trouve dans le _NameSpace_ default
+Création d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé à l'aide de la commande `kubectl create clusterrolebinding`, il se trouve dans le _NameSpace_ `default`.
 
-|**Exigence**
+|**Exigences**
 |:--|
 |Le _ClusterRoleBinding_ doit être nommé `cluster-admin-<shortname>`.
 |Le _ClusterRole_ à utiliser est `cluster-admin`
@@ -111,7 +112,7 @@ Quelle commande kubectl faut-il utiliser ?
 
 Création d'un [_secret_](https://kubernetes.io/docs/concepts/configuration/secret/) - de manière déclarative - lié au _ServiceAccount_ précédemment créé pour obtenir un _token_ d'accès distant.
 
-|**Exigence**
+|**Exigences**
 |:--|
 |Le _Secret_ doit être nommé `<shortname>-token`.
 |Le _Secret_ doit être de type `kubernetes.io/service-account-token`
@@ -180,4 +181,4 @@ la clé `users[0].user.token` doit contenir le token de l'utilisateur non encod�
 Listez les différents _NameSpace_ et _pod_ à l'aide de la commande `kubectl`.
 :::
 
-_L'objectif est d'acceder a l'environnement kubernetes depuis un ordinateur disant._
+_L'objectif est d'accéder a l'environnement kubernetes depuis un ordinateur disant._
