@@ -39,17 +39,25 @@ _L'objectif est de fournir un environnement Kubernetes fonctionnel pour le trava
 
 _Préparation à la séance 2_
 
-Installation de Linux/Debian sur un serveur du local.
+- Installation de Linux/Debian sur un serveur du local.
 
-|**Exigences**|
-|:-- |
-|Identifiant _user_ : `user` / `user`
-|Identifiant _root_ : `root` / <donné oralement>
-|Pas d'environnement graphique (évidemment)
-|Layout de disque : une partition unique
-|Adresse IP : cfr. document interne
-|Nom de domaine : au choix
+    |**Exigences**|
+    |:-- |
+    |Identifiant _user_ : `user` / `user`
+    |Identifiant _root_ : `root` / <donné oralement>
+    |Pas d'environnement graphique (évidemment)
+    |Layout de disque : une partition unique
+    |Adresse IP : cfr. document interne
+    |Nom de domaine : au choix
 
-Afin de permettre l'accès distant, installez le serveur OpenSSH.
+    :::warning
+    Si un environnement graphique est présent après l'installation initiale, supprimez-le en nettoyant (`remove`) les paquets `lightdm` et `xfce4`.
+    :::
 
-Si un environnement graphique est présent après l'installation initiale, supprimez-le en nettoyant les paquets lightdm et xfce4.
+- Afin de permettre l'accès distant, installez le serveur OpenSSH.
+
+    :::warning
+    Par défaut, un serveur _ssh_ Debian n'accepte pas la connection directe de l'utilisateur _root_ (et c'est bien). 
+
+    Il faut d'abord se connecter avec un compte autorisé (_user_) et ensuite devenir _root_. 
+    :::
