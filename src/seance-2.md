@@ -22,13 +22,17 @@ Une fois l'installation de K3S réalisée, la suite des tâches est individuelle
 
 Lancer un premier Pod de manière impérative en utilisant l'image suivante : [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) avec la commande `kubectl run`.
 
+:::warning Remarque
+Un accès SSH est nécessaire pour réaliser cette tâche à distance, elle se fait via l'utilisateur _root_.
+:::
+
 |**Exigence**
 |:--|
 |Le _pod_ doit être nommé `<shortname>-imperatif`, où `<shortname>` est un placeholder pour votre identifiant utilisateur.
 |Le _pod_ doit avoir le label `app: pod-imperatif`.
 
 
-:::warning Question
+:::warning Question²
 Quelle commande kubectl faut-il utiliser ?
 Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl.
 :::
@@ -36,6 +40,10 @@ Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la comma
 ### Tâche 3
 
 Lancer un second _pod_ de maniere declarative en utilisant l'image suivante [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) a l'aide de la commande `kubectl apply`.
+
+:::warning Remarque
+Un accès SSH est nécessaire pour réaliser cette tâche à distance, elle se fait via l'utilisateur _root_.
+:::
 
 #### Exemple de pod Kubernetes simple
 
