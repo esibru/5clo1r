@@ -14,6 +14,10 @@
 
 [Installation de K3s](https://docs.k3s.io/quick-start) sur le serveur du groupe.
 
+:::warning Question
+Une fois l'installation de K3S réalisée, la suite des tâches est individuelle.
+:::
+
 ### Tâche 2
 
 Lancer un premier Pod de manière impérative en utilisant l'image suivante : [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) avec la commande `kubectl run`.
