@@ -133,7 +133,7 @@ type: kubernetes.io/service-account-token
 Quel est le contenu du fichier yaml correspondant au secret et quelle commande kubectl faut-il utiliser pour l'appliquer ?
 :::
 
-_L'objectif est de créer un accès via un token a l'environnement kubernetes pour permettre son utilisation depuis un ordinateur distant._
+_L'objectif est de créer un accès via un token à l'environnement kubernetes pour permettre son utilisation depuis un ordinateur distant._
 
 ### Tâche 6
 
