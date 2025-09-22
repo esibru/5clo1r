@@ -46,6 +46,7 @@ Installation de Linux/Debian sur un serveur du local.
 |Identifiant _user_ : `user` / `user`
 |Identifiant _root_ : `root` / <donné oralement>
 |Pas d'environnement graphique (évidemment)
+|Layout de disque : une partition unique
 |Adresse IP : cfr. document interne
 |Nom de domaine : au choix
 
