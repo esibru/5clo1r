@@ -76,6 +76,10 @@ Listez les différents _NameSpace_ à l'aide de la commande kubectl.
 
 Creation d'un [_ServiceAccount_](https://kubernetes.io/docs/concepts/security/service-accounts/) individuel dans le _namespace_ individuel sur l'environnement _kubernetes_ partagé à l'aide de la commande `kubectl create serviceaccount`.
 
+|**Exigence**
+|:--|
+|Le _ServiceAccount_ doit etre nommé `sa-<shortname>`.
+
 :::warning Question
 Quelle commande kubectl faut-il utiliser ?
 Listez les différents _ServiceAccount_ dans le _NameSpace_ invidivuel ainsi que sur l'ensemble de l'environnment _kubernetes_ à l'aide de la commande kubectl.
