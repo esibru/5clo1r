@@ -14,7 +14,7 @@
 
 [Installation de K3s](https://docs.k3s.io/quick-start) sur le serveur du groupe.
 
-:::warning Question
+:::danger 
 Une fois l'installation de K3S réalisée, la suite des tâches est individuelle.
 :::
 
@@ -29,11 +29,11 @@ Un accès SSH est nécessaire pour réaliser cette tâche à distance, elle se f
 |**Exigence**
 |:--|
 |Le _pod_ doit être nommé `<shortname>-imperatif`, où `<shortname>` est un placeholder pour votre identifiant utilisateur.
-|Le _pod_ doit avoir le label `app: pod-imperatif`.
+|Le _pod_ doit avoir le label `app=pod-imperatif`.
 
 
-:::warning Question²
-Quelle commande kubectl faut-il utiliser ?
+:::warning Question
+Quelle commande kubectl faut-il utiliser ?  
 Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl.
 :::
 
