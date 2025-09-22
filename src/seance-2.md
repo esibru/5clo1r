@@ -39,7 +39,7 @@ Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la comma
 
 ### Tâche 3
 
-Lancer un second _pod_ de maniere declarative en utilisant l'image suivante [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) a l'aide de la commande `kubectl apply`.
+Lancer un second _pod_ de manière déclarative en utilisant l'image suivante [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) à l'aide de la commande `kubectl apply`.
 
 :::warning Remarque
 Un accès SSH est nécessaire pour réaliser cette tâche à distance, elle se fait via l'utilisateur _root_.
@@ -62,22 +62,23 @@ spec:
 
 |**Exigence**
 |:--|
-|Le _pod_ doit etre nommé `<shortname>-declaratif`, ou `<shortname>` est un placeholder pour votre identifiant utilisateur.
+|Le _pod_ doit être nommé `<shortname>-declaratif`, ou `<shortname>` est un placeholder pour votre identifiant utilisateur.
 |Le _pod_ doit avoir le label `app: pod-declaratif`.
 
 
-:::warning Question
-Quel est le contenu du fichier YAML pour le déploiement et quelle commande kubectl faut-il utiliser ?
+:::warning Questions
+Quel est le contenu du fichier YAML pour le déploiement et quelle commande kubectl faut-il utiliser ?  
+
 Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl.
 :::
 
 ### Tâche 4
 
-Création d'un [_NameSpace_](https://kubernetes.io/fr/docs/concepts/overview/working-with-objects/namespaces/) individuel sur l'environnement _kubernetes_ partagé a l'aide de la commande `kubectl create namespace`
+Création d'un [_NameSpace_](https://kubernetes.io/fr/docs/concepts/overview/working-with-objects/namespaces/) individuel sur l'environnement _kubernetes_ partagé à l'aide de la commande `kubectl create namespace`
 
 |**Exigence**
 |:--|
-|Le _namespace_ doit etre nommé `ns-<shortname>`.
+|Le _namespace_ doit être nommé `ns-<shortname>`.
 
 :::warning Question
 Quelle commande kubectl faut-il utiliser ?
@@ -90,30 +91,30 @@ Creation d'un [_ServiceAccount_](https://kubernetes.io/docs/concepts/security/se
 
 |**Exigence**
 |:--|
-|Le _ServiceAccount_ doit etre nommé `sa-<shortname>`.
+|Le _ServiceAccount_ doit être nommé `sa-<shortname>`.
 
 :::warning Question
-Quelle commande kubectl faut-il utiliser ?
+Quelle commande kubectl faut-il utiliser ?  
 Listez les différents _ServiceAccount_ dans le _NameSpace_ invidivuel ainsi que sur l'ensemble de l'environnment _kubernetes_ à l'aide de la commande kubectl.
 :::
 
-Creation d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé a l'aide de la commande `kubectl create clusterrolebinding`, il se trouve dans le _NameSpace_ default
+Creation d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé à l'aide de la commande `kubectl create clusterrolebinding`, il se trouve dans le _NameSpace_ default
 
 |**Exigence**
 |:--|
-|Le _ClusterRoleBinding_ doit etre nommé `cluster-admin-<shortname>`.
+|Le _ClusterRoleBinding_ doit être nommé `cluster-admin-<shortname>`.
 |Le _ClusterRole_ à utiliser est `cluster-admin`
 
 :::warning Question
 Quelle commande kubectl faut-il utiliser ?
 :::
 
-Création d'un [_secret_](https://kubernetes.io/docs/concepts/configuration/secret/) - de manière déclarative - lié au _ServiceAccount_ précedemment crée pour obtenir un _token_ d'accès distant.
+Création d'un [_secret_](https://kubernetes.io/docs/concepts/configuration/secret/) - de manière déclarative - lié au _ServiceAccount_ précédemment créé pour obtenir un _token_ d'accès distant.
 
 |**Exigence**
 |:--|
-|Le _Secret_ doit etre nommé `<shortname>-token`.
-|Le _Secret_ doit etre de type `kubernetes.io/service-account-token`
+|Le _Secret_ doit être nommé `<shortname>-token`.
+|Le _Secret_ doit être de type `kubernetes.io/service-account-token`
 
 #### Exemple de secret Kubernetes 
 
@@ -131,15 +132,15 @@ type: kubernetes.io/service-account-token
 Quel est le contenu du fichier yaml correspondant au secret et quelle commande kubectl faut-il utiliser pour l'appliquer ?
 :::
 
-_L'objectif est de creer un acces via un token a l'environnement kubernetes pour permettre son utilisation depuis un ordianteur disant._
+_L'objectif est de créer un accès via un token a l'environnement kubernetes pour permettre son utilisation depuis un ordinateur distant._
 
 ### Tâche 6
 
-Installation de [`kubectl`](https://kubernetes.io/docs/tasks/tools/) sur un ordinateur distant afin d'interragir avec l'environnement _kubernetes_ partagé via le _ServiceAccount_ crée precedement.
+Installation de [`kubectl`](https://kubernetes.io/docs/tasks/tools/) sur un ordinateur distant afin d’interagir avec l'environnement _kubernetes_ partagé via le _ServiceAccount_ crée précédemment.
 
-Pour créer le fichier de configuration necessaire a `kubectl` sur l'ordinateur distant il est necessaire de recuperer le fichier kubeconfig du serveur a l'aide de la commande `kubectl config view --raw` et d'y realiser des modifications tel que le nom ou ip du serveur, le nom d'utilisateur a utiliser ainsi que le token.
+Pour créer le fichier de configuration nécessaire a `kubectl` sur l'ordinateur distant il est nécessaire de récupérer le fichier kubeconfig du serveur à l'aide de la commande `kubectl config view --raw` et d'y réaliser des modifications tel que le nom ou ip du serveur, le nom d'utilisateur a utiliser ainsi que le token.
 
-Le token peux etre recuperer en affichant le contenu du _secret_ crée lors de la tache precedente a l'aide de la commande `kubectl get secret <shortname>-secret -o yaml`. Attention, dans un _secret_ les données sont encodée en base64.
+Le token peux être récupérer en affichant le contenu du _secret_ crée lors de la tache précédente à l'aide de la commande `kubectl get secret <shortname>-secret -o yaml`. Attention, dans un _secret_ les données sont encodées en base64.
 
 #### Exemple de fichier kubeconfig utilisant un token
 
@@ -164,11 +165,11 @@ users:
     token: {omitted}
 ```
 
-La clé `clusters[0].cluster.certificate-authority-data` doit contenir le CertificateAuthority de l'environnment _kubernetes_ au format base64.
+La clé `clusters[0].cluster.certificate-authority-data` doit contenir le CertificateAuthority de l’environnent _kubernetes_ au format base64.
 
 la clé `users[0].user.token` doit contenir le token de l'utilisateur non encodé au format base64.
 
- Il est nécessaire de definir la variable d'environnement `KUBECONFIG` avec le _path_ vers votre fichier de configuration.
+ Il est nécessaire de définir la variable d'environnement `KUBECONFIG` avec le _path_ vers votre fichier de configuration.
 
 |Shell|Commande|
 |:--|:--|
@@ -179,4 +180,4 @@ la clé `users[0].user.token` doit contenir le token de l'utilisateur non encod�
 Listez les différents _NameSpace_ et _pod_ à l'aide de la commande `kubectl`.
 :::
 
-_L'objectif est d'acceder a l'environnement kubernetes depuis un ordianteur disant._
+_L'objectif est d'acceder a l'environnement kubernetes depuis un ordinateur disant._
