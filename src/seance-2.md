@@ -96,7 +96,7 @@ Creation d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access
 Quelle commande kubectl faut-il utiliser ?
 :::
 
-Création d'un [_secret_](https://kubernetes.io/docs/concepts/configuration/secret/) lié au _ServiceAccount_ précedemment crée pour obtenir un _token_ d'accès distant.
+Création d'un [_secret_](https://kubernetes.io/docs/concepts/configuration/secret/) - de manière déclarative - lié au _ServiceAccount_ précedemment crée pour obtenir un _token_ d'accès distant.
 
 |**Exigence**
 |:--|
@@ -116,7 +116,7 @@ type: kubernetes.io/service-account-token
 ```
 
 :::warning Question
-Quel est le contenu du fichier yaml correspondant au secret et quelle commande kubectl faut-il utiliser ?
+Quel est le contenu du fichier yaml correspondant au secret et quelle commande kubectl faut-il utiliser pour l'appliquer ?
 :::
 
 _L'objectif est de creer un acces via un token a l'environnement kubernetes pour permettre son utilisation depuis un ordianteur disant._
