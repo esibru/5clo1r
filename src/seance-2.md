@@ -61,11 +61,24 @@ Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la comma
 
 ### Tâche 4
 
-Creation d'un [_ServiceAccount_](https://kubernetes.io/docs/concepts/security/service-accounts/) individuel dans le _namespace_ `default` sur l'environnement _kubernetes_ partagé à l'aide de la commande `kubectl create serviceaccount`.
+Création d'un [_NameSpace_](https://kubernetes.io/fr/docs/concepts/overview/working-with-objects/namespaces/) individuel sur l'environnement _kubernetes_ partagé a l'aide de la commande `kubectl create namespace`
+
+|**Exigence**
+|:--|
+|Le _namespace_ doit etre nommé `ns-<shortname>`.
 
 :::warning Question
 Quelle commande kubectl faut-il utiliser ?
-Listez les différents _ServiceAccount_ dans le _NameSpace_ `default` à l'aide de la commande kubectl.
+Listez les différents _NameSpace_ à l'aide de la commande kubectl.
+:::
+
+### Tâche 5
+
+Creation d'un [_ServiceAccount_](https://kubernetes.io/docs/concepts/security/service-accounts/) individuel dans le _namespace_ individuel sur l'environnement _kubernetes_ partagé à l'aide de la commande `kubectl create serviceaccount`.
+
+:::warning Question
+Quelle commande kubectl faut-il utiliser ?
+Listez les différents _ServiceAccount_ dans le _NameSpace_ invidivuel ainsi que sur l'ensemble de l'environnment _kubernetes_ à l'aide de la commande kubectl.
 :::
 
 Creation d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé a l'aide de la commande `kubectl create clusterrolebinding`, il se trouve dans le _NameSpace_ default
@@ -104,7 +117,7 @@ Quel est le contenu du fichier yaml correspondant au secret et quelle commande k
 
 _L'objectif est de creer un acces via un token a l'environnement kubernetes pour permettre son utilisation depuis un ordianteur disant._
 
-### Tâche 5
+### Tâche 6
 
 Installation de [`kubectl`](https://kubernetes.io/docs/tasks/tools/) sur un ordinateur distant afin d'interragir avec l'environnement _kubernetes_ partagé via le _ServiceAccount_ crée precedement.
 
@@ -146,17 +159,8 @@ la clé `users[0].user.token` doit contenir le token de l'utilisateur non encod�
 |PowerShell|$env:KUBECONFIG = "C:\Users\myuser\kubeconfig-sa-myuser-token.yaml"|
 |Bash|export KUBECONFIG=/home/myuser/kubeconfig-sa-myuser-token.yaml|
 
-_L'objectif est d'acceder a l'environnement kubernetes depuis un ordianteur disant._
-
-### Tâche 6
-
-Création d'un [_NameSpace_](https://kubernetes.io/fr/docs/concepts/overview/working-with-objects/namespaces/) individuel sur l'environnement _kubernetes_ partagé a l'aide de la commande `kubectl create namespace`
-
-|**Exigence**
-|:--|
-|Le _namespace_ doit etre nommé `ns-<shortname>`.
-
 :::warning Question
-Quelle commande kubectl faut-il utiliser ?
-Listez les différents _NameSpace_ à l'aide de la commande kubectl.
+Listez les différents _NameSpace_ et _pod_ à l'aide de la commande `kubectl`.
 :::
+
+_L'objectif est d'acceder a l'environnement kubernetes depuis un ordianteur disant._
