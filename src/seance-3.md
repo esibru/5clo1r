@@ -49,7 +49,7 @@ Quelle commande kubectl faut-il utiliser ?
 Listez les différents _ServiceAccount_ dans le _NameSpace_ individuel ainsi que sur l'ensemble de l'environnement _kubernetes_ à l'aide de la commande kubectl.
 :::
 
-Création d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé à l'aide de la commande `kubectl create clusterrolebinding`. Il se trouve dans le _NameSpace_ `default`.
+Création d'un [_ClusterRoleBinding_](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding) pour assigner le _ClusterRole_ `cluster-admin` pré-existant au _ServiceAccount_ précédemment créé à l'aide de la commande `kubectl create clusterrolebinding`.
 
 |**Exigences**
 |:--|
