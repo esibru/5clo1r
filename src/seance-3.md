@@ -113,9 +113,9 @@ La clé `clusters[0].cluster.certificate-authority-data` doit contenir le _Certi
 
 La clé `users[0].user.token` doit contenir le token de l'utilisateur non encodé au format base64.
 
-:::note Format YAML
+:::info Format YAML
 
-Le format YAML (YAML Ain't Markup Language) est largement utilisé pour la configuration dans Kubernetes (et ailleurs).
+Le format YAML (_YAML Ain't Markup Language_) est largement utilisé pour la configuration dans Kubernetes (et ailleurs).
 
 Sa structure repose sur des clés et des valeurs, organisées de manière hiérarchique grâce à l'**indentation**.  
 Il est essentiel d'utiliser des **espaces** pour l'indentation (jamais de tabulations), car une mauvaise indentation peut rendre le fichier invalide.  
