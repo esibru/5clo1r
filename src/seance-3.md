@@ -133,10 +133,10 @@ parent:
         - item2
 ```
 
-`parent.child.list[0]` vaut `item1`.  
+`parent.child` vaut `valeur` tandis que `parent.list[0]` vaut `item1`.  
 
-- `parent.child.list` fait référence à la liste entière (`[item1, item2]`)
-- `parent.child.list[0]` permet d'accéder au premier élément de cette liste, soit `item1`.
+- `parent.list` fait référence à la liste entière (`[item1, item2]`)
+- `parent.list[0]` permet d'accéder au premier élément de cette liste, soit `item1`.
 - on pourrait également écrire 
     ```yaml
     parent:
