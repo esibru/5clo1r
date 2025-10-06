@@ -61,6 +61,7 @@ spec:
         - name: nginx
           image: nginx:latest
 ```
+
 |**Exigences**
 |:--|
 |Le _deployment_ doit être nommé `<shortname>-deploy`, ou `<shortname>` est un placeholder pour votre identifiant utilisateur.
@@ -93,7 +94,7 @@ Que peut-on observer sur les _replicaset_ et les _pods_ après l'application du 
 
 ### Tâche 4
 
-Un [_statefulset_](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) gère des Pods qui sont basés sur une même spécification de conteneur. Contrairement à un Deployment, un StatefulSet maintient une identité pour chacun de ces Pods. Ces Pods sont créés à partir de la même spec, mais ne sont pas interchangeables : chacun a un identifiant persistant qu'il garde à travers tous ses re-scheduling.
+Un [_statefulset_](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) gère des Pods qui sont basés sur une même spécification de conteneur. Contrairement à un _Deployment_, un _StatefulSet_ maintient une identité pour chacun de ces Pods. Ces _Pods_ sont créés à partir de la même spec, mais ne sont pas interchangeables : chacun a un identifiant persistant qu'il garde à travers tous ses _rescheduling_ (reprogrammations).
 
 Créez un manifeste YAML déclaratif pour déployer un _statefulset_ avec l'image container utilisée précédemment et accédez à son contenu en utilisant la commande [`kubectl port-forward`](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
 
@@ -105,7 +106,7 @@ Créez un manifeste YAML déclaratif pour déployer un _statefulset_ avec l'imag
 |Les probes _liveness_ et _readiness_ sur `/liveness` et `/readiness` doivent être définies.
 
 :::warning Questions
-Que peut-on observer comme différence entre un _pod_ créé _via_ un _deployment_ d'un pod créé via un _statefulset _?
+Que peut-on observer comme différence entre un _pod_ créé _via_ un _deployment_ d'un pod créé via un _statefulset _ ?
 :::
 
 ### Tâche 5
@@ -127,7 +128,7 @@ Quelle commande kubectl faut-il utiliser pour accéder à l'application Web dans
 
 ### Tâche 6
 
-Reprenez la première tâche de la premiere séance et comparer les variable d’environnment avec un _pod_ scheduler par un _deployment_ ainsi que par un _statefulset_.
+Reprenez la première tâche de la premiere séance et comparez les variable d’environnement avec un _pod_ scheduler par un _deployment_ ainsi que par un _statefulset_.
 
 :::warning Question
 Que peut-on observer comme variables initialisées et valeurs différentes entre les instances du même container ? Quel lien cela a-t-il avec la manière dont le container est déployé ?
