@@ -113,6 +113,39 @@ La clé `clusters[0].cluster.certificate-authority-data` doit contenir le _Certi
 
 La clé `users[0].user.token` doit contenir le token de l'utilisateur non encodé au format base64.
 
+:::note Format YAML
+
+Le format YAML (YAML Ain't Markup Language) est largement utilisé pour la configuration dans Kubernetes (et ailleurs).
+
+Sa structure repose sur des clés et des valeurs, organisées de manière hiérarchique grâce à l'**indentation**.  
+Il est essentiel d'utiliser des **espaces** pour l'indentation (jamais de tabulations), car une mauvaise indentation peut rendre le fichier invalide.  
+Chaque clé est suivie de `:` et peut contenir une valeur simple ou une structure imbriquée.
+
+Il est possible d'accéder à une valeur imbriquée via un « accès à plat » en utilisant la notation pointée, par exemple : `parent.child`.
+
+Exemple :
+
+```yaml
+parent:
+    child: valeur
+    list:
+        - item1
+        - item2
+```
+
+`parent.child.list[0]` vaut `item1`.  
+
+- `parent.child.list` fait référence à la liste entière (`[item1, item2]`)
+- `parent.child.list[0]` permet d'accéder au premier élément de cette liste, soit `item1`.
+- on pourrait également écrire 
+    ```yaml
+    parent:
+      child: valeur
+      list: ['item1', 'item2']
+    ```
+
+:::
+
 Il est nécessaire de définir la variable d'environnement `KUBECONFIG` avec le _path_ vers votre fichier de configuration.
 
 |Shell|Commande|
