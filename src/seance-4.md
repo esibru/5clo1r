@@ -12,13 +12,13 @@
 :::
 
 
-### Tâche 1
-
 :::warning Remarque
 Il est nécessaire de maîtriser les notions : **déclaratif** _versus_ **impératif**. 
 
 Les tâches suivantes se réaliseront toujours de manière déclarative.
 :::
+
+### Tâche 1
 
 Déployez un Pod de manière déclarative _via_ votre accès distant (cfr. tâche 3 de la séance 2) et accédez à son contenu en utilisant la commande `kubectl port-forward`.
 
@@ -92,9 +92,17 @@ Les [probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-
 Que peut-on observer sur les _replicaset_ et les _pods_ après l'application du changement de paramètre du déploiement ?
 :::
 
+:::tip Note sur les probes
+Les endpoints `/liveness` et `/readiness` retournent simplement `OK` et `READY` respectivement. 
+
+Pour observer plus clairement le comportement des probes lors du démarrage des pods, vous pouvez modifier les paramètres `initialDelaySeconds` (le temps avant la première vérification) ou `periodSeconds` (le temps entre chaque vérification) dans vos probes pour ralentir leur exécution et pouvoir visualiser l'état.
+
+_Nous reviendrons sur ces concepts plus tard. Actuellement, retenons qu'il faut des probes ; il faut que kubernetes puisse tester l'état de ses pods._
+:::
+
 ### Tâche 4
 
-Un [_statefulset_](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) gère des Pods qui sont basés sur une même spécification de conteneur. Contrairement à un _Deployment_, un _StatefulSet_ maintient une identité pour chacun de ces Pods. Ces _Pods_ sont créés à partir de la même spec, mais ne sont pas interchangeables : chacun a un identifiant persistant qu'il garde à travers tous ses _rescheduling_ (reprogrammations).
+Un [_statefulset_](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) gère des Pods qui sont basés sur une même spécification de conteneur. Contrairement à un _Deployment_, un _StatefulSet_ maintient une identité pour chacun de ces Pods. Ces _Pods_ sont créés à partir de la même spec, mais ne sont pas interchangeables : chacun a un identifiant persistant qu'il garde à travers tous ses _rescheduling_ (reprogrammations).
 
 Créez un manifeste YAML déclaratif pour déployer un _statefulset_ avec l'image container utilisée précédemment et accédez à son contenu en utilisant la commande [`kubectl port-forward`](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/).
 
