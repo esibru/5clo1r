@@ -77,14 +77,14 @@ Quel est le contenu du fichier yaml pour créer le _Service_ ainsi que le _Deplo
 
 Quelle commande ```kubectl``` faut-il utiliser pour connaitre les différents endpoints ciblés par le _Service_ ? Expliquez l'output de la commande.
 
-Quelle est l'ip _Load Balancer_ assignée aux services ? Comment la trouves-t-on ?
+Quelle est l'ip _Load Balancer_ assignée aux services ? Comment la trouve-t-on ?
 
 Quelle est la différence entre un service de type _ClusterIP_ et un service de type _Load Balancer_ ?
 :::
 
 ## Tâche 3
 
-Faites varier le nombre de _replicas_ sur votre _Deployment_ précédemment crée.
+Faites varier le nombre de _replicas_ sur votre _Deployment_ précédemment créé.
 
 :::warning Question
 Que pouvez-vous observer sur le _Service_ ?
