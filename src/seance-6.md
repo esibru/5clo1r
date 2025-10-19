@@ -48,6 +48,33 @@ Dcumentation Kubernetes : [Définir des variables d'environnement pour un Contai
 
 Vous pouvez valider la couleur de fond de la page web a l'aide d'un port-foward sur chaque service individuellement.
 
+### Exemple d'un _Deployment_ avec définition d'une variable d'environnement *MYVAR*
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: container
+          image: nginx:latest
+          env:
+            - name: MYVAR
+              value: "HelloWorld"
+```
+
 :::warning Questions
 Quel est le contenu du fichier yaml pour créer les trois _Service_ ainsi que les trois _Deployment_ ?
 :::
