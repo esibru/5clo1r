@@ -31,7 +31,7 @@ Les _Ingress_ ne sont pas fournis nativement par Kubernetes, il est necessaire d
 
 Un _Ingress Controller_ est deployé par défaut sur K3S, il s'agit de Traefik. Le _Service_ correspondant à une ip de type _LoadBalancer_. Pour vous permettre de l'utiliser, un record dns de type wildcard a ete crée pour chaque groupe avec la structure suivante : *.grp-X-Y.5clo1r.in.esigoto.info. Ils sont accessible via le serveur dns interne 192.168.217.200.
 
-### Tâche 1
+## Tâche 1
 
 L'application Flask utilise la variable d'environnement **BG_COLOR** afin de definir la couleur de fond de la page web. Cette variable est utilisé par la propriété CSS [background-color](https://www.w3schools.com/cssref/pr_background-color.php).
 
@@ -79,7 +79,7 @@ spec:
 Quel est le contenu du fichier yaml pour créer les trois _Service_ ainsi que les trois _Deployment_ ?
 :::
 
-### Tâche 2
+## Tâche 2
 
 De manière déclarative, créez un [_Ingress_](https://kubernetes.io/docs/concepts/services-networking/ingress/) pour chaqun des _Service_ et _Deployment_ créé à la tâche précédente.
 
@@ -119,7 +119,7 @@ Quel est le contenu du fichier YAML pour créer les differents _Ingress_
 :::
 
 
-### Tâche 3
+## Tâche 3
 
 De manière déclarative, créez un unique _Ingress_ permettant d'acceder aux trois _Service_ et _Deployment_ créé à la tâche 1 via trois règles spécifique.
 
@@ -134,3 +134,4 @@ De manière déclarative, créez un unique _Ingress_ permettant d'acceder aux tr
 Quel est le contenu du fichier YAML pour créer cet unique _Ingress_ donnant accès aux différents _Service_ et _Deployment_
 
 Expliquez le rôle du paramètre _pathType_ et les différentes valeur possible.
+:::
