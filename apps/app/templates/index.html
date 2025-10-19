@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flask App Kubernetes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background-color: {{ bg_color }};" class="text-gray-800 flex flex-col items-center justify-center min-h-screen p-4">
+
+<div class="bg-white shadow-2xl rounded-2xl p-8 max-w-5xl w-full text-center">
+
+<h1 class="text-3xl font-bold mb-6">🚀 Flask App Kubernetes</h1>
+
+<!-- Horloge + Probes -->
+<div class="bg-white shadow-lg rounded-2xl p-6 my-4 w-full">
+    <h2 class="text-xl font-bold mb-2">⏰ Horloge</h2>
+    <p id="current-time" class="text-gray-700 text-lg font-mono">--:--:--</p>
+
+    <!-- Boutons toggle probes -->
+    <div class="flex justify-center gap-4 mt-4 mb-2">
+        <button onclick="toggleProbe('liveness')" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition">Toggle Liveness ⚡</button>
+        <button onclick="toggleProbe('readiness')" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">Toggle Readiness ⚡</button>
+    </div>
+
+    <!-- Statuts probes -->
+    <div class="flex justify-center gap-8 mt-2">
+        <p>⚡ Liveness :
+            <span id="liveness-status" class="{{ 'text-green-600' if is_alive else 'text-red-600' }} font-semibold">
+            {{ 'True ✅' if is_alive else 'False ❌' }}</span>
+        </p>
+        <p>⚡ Readiness :
+            <span id="readiness-status" class="{{ 'text-green-600' if is_ready else 'text-red-600' }} font-semibold">
+            {{ 'True ✅' if is_ready else 'False ❌' }}</span>
+        </p>
+    </div>
+</div>
+
+<!-- Variables Kubernetes -->
+<div class="bg-white shadow-lg rounded-2xl p-6 my-4 w-full text-left">
+    <h2 class="text-xl font-bold mb-2">📦 Variables Kubernetes</h2>
+    <ul class="text-gray-700">
+        <li><strong>Pod Name:</strong> {{ env_vars.POD_NAME }}</li>
+        <li><strong>Pod IP:</strong> {{ env_vars.POD_IP }}</li>
+        <li><strong>Namespace:</strong> {{ env_vars.NAMESPACE }}</li>
+        <li><strong>Container Name:</strong> {{ env_vars.CONTAINER_NAME }}</li>
+        <li><strong>Node Name:</strong> {{ env_vars.NODE_NAME }}</li>
+        <li><strong>Container ID:</strong> {{ env_vars.CONTAINER_ID }}</li>
+    </ul>
+</div>
+
+<!-- Container flex pour Secrets et ConfigMap -->
+<div class="flex flex-col md:flex-row gap-4 w-full">
+
+    <!-- Secrets -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 flex-1 text-left">
+        <h2 class="text-xl font-bold mb-2">🔒 Secrets Kubernetes</h2>
+        <ul class="text-gray-700">
+            <li>
+                <strong>DATABASE_URL:</strong> <span id="DATABASE_URL">*****</span>
+                <button onclick="toggleSecret('DATABASE_URL')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
+            </li>
+            <li>
+                <strong>API_KEY:</strong> <span id="API_KEY">*****</span>
+                <button onclick="toggleSecret('API_KEY')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
+            </li>
+            <li>
+                <strong>JWT_SECRET:</strong> <span id="JWT_SECRET">*****</span>
+                <button onclick="toggleSecret('JWT_SECRET')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- ConfigMap -->
+    <div class="bg-white shadow-lg rounded-2xl p-6 flex-1 text-left">
+        <h2 class="text-xl font-bold mb-2">🗂️ ConfigMap Kubernetes</h2>
+        <ul class="text-gray-700">
+            <li><strong>LOG_LEVEL:</strong> {{ configmap_vars.LOG_LEVEL }}</li>
+            <li><strong>MAX_CONNECTIONS:</strong> {{ configmap_vars.MAX_CONNECTIONS }}</li>
+            <li><strong>CACHE_TIMEOUT:</strong> {{ configmap_vars.CACHE_TIMEOUT }}</li>
+            <li><strong>FEATURE_FLAG_NEW_UI:</strong> {{ configmap_vars.FEATURE_FLAG_NEW_UI }}</li>
+            <li><strong>APP_CONFIG:</strong> {{ configmap_vars.APP_CONFIG }}</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Liens -->
+<div class="flex flex-wrap justify-center gap-4 mt-4">
+    <a href="/api/info" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">🌐 Voir API JSON</a>
+    <a href="/readiness" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">🌐 Check Readiness</a>
+    <a href="/liveness" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">🌐 Check Liveness</a>
+</div>
+
+</div>
+
+<script>
+// --- Horloge ---
+function updateTime() {
+    const now = new Date();
+    document.getElementById("current-time").textContent = now.toLocaleTimeString();
+}
+updateTime();
+setInterval(updateTime, 1000);
+
+// --- Toggle secrets ---
+const secretsData = {
+    DATABASE_URL: "{{ secrets.DATABASE_URL }}",
+    API_KEY: "{{ secrets.API_KEY }}",
+    JWT_SECRET: "{{ secrets.JWT_SECRET }}"
+};
+function toggleSecret(secretId) {
+    const elem = document.getElementById(secretId);
+    elem.textContent = elem.textContent === "*****" ? secretsData[secretId] : "*****";
+}
+
+// --- Toggle probes manuels ---
+async function toggleProbe(probe) {
+    try {
+        const response = await fetch(`/toggle/${probe}`, { method: 'POST' });
+        const data = await response.json();
+        const statusSpan = document.getElementById(`${probe}-status`);
+        const isTrue = data[probe];
+        statusSpan.textContent = isTrue ? "True ✅" : "False ❌";
+        statusSpan.className = isTrue ? "text-green-600 font-semibold" : "text-red-600 font-semibold";
+    } catch (err) { console.error(err); }
+}
+
+// --- Rafraîchissement automatique des probes ---
+async function refreshProbes() {
+    try {
+        const [livenessRes, readinessRes] = await Promise.all([
+            fetch('/liveness'),
+            fetch('/readiness')
+        ]);
+
+        const livenessData = await livenessRes.json();
+        const readinessData = await readinessRes.json();
+
+        const livenessSpan = document.getElementById('liveness-status');
+        const readinessSpan = document.getElementById('readiness-status');
+
+        const isAlive = livenessData.status;
+        const isReady = readinessData.status;
+
+        livenessSpan.textContent = isAlive ? "True ✅" : "False ❌";
+        livenessSpan.className = isAlive ? "text-green-600 font-semibold" : "text-red-600 font-semibold";
+
+        readinessSpan.textContent = isReady ? "True ✅" : "False ❌";
+        readinessSpan.className = isReady ? "text-green-600 font-semibold" : "text-red-600 font-semibold";
+
+    } catch (err) {
+        console.error('Erreur rafraîchissement probes:', err);
+    }
+}
+refreshProbes();
+setInterval(refreshProbes, 2000);
+
+</script>
+
+</body>
+</html>
+
