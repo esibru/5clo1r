@@ -40,8 +40,9 @@ export default defineConfig({
                 text: '…',
                 items: [
                     { text: 'Organisation', link: '/organisation' },
-                    { text: 'Slides', link: 'slides' },
-                    { text: 'Sources', link: '/sources' }
+                    { text: 'Slides', link: '/slides' },
+                    { text: 'Sources', link: '/sources' },
+                    { text: 'Informations techniques', link: '/techniques'}
                 ]
             }
         ],
