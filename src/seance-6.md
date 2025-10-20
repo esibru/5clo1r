@@ -2,6 +2,8 @@
 
 :::warning Remarque
 L'image à utiliser est [docker.io/5clo1r/k8s-labo](docker.io/5clo1r/k8s-labo) avec le tag **0.1.0**
+
+Les probes liveness et readiness doivent toujours être définie. Elles sont de type HTTP et sont disponible sur les path /liveness et /readiness
 :::
 
 **Variables d'environnement**
