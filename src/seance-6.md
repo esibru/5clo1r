@@ -8,47 +8,49 @@ Les probes liveness et readiness doivent toujours être définie. Elles sont de 
 
 **Variables d'environnement**
 
-:::info Ojectifs
-- Je donne des paramètres avant la création de mon _pod_ pour avoir des containers différents.
+:::info Objectifs
+- Donner des paramètres avant la création de mon _pod_ pour avoir des containers différents.
 :::
 
-Les variables d’environnement sont des paires clé-valeur accessibles par un process pour configurer son comportement sans avoir a toucher au code source.
+Les variables d’environnement sont des paires clé-valeur accessibles par un _process_ pour configurer son comportement sans avoir à toucher au code source.
 
 Exemple : définir le nom de la base de données, le port du serveur, ou le nom d’un utilisateur.
 
 **Ingress**
 
 :::info Objectifs
-- Comprendre la différence avec un _Service_ de type LoadBalancer ou NodePort.
-- Apprendre à configurer des Ingress avec des règles host et path pour rediriger le trafic vers différents services.
+- Comprendre la différence avec un _Service_ de type _LoadBalancer_ ou _NodePort_.
+- Apprendre à configurer des _Ingress  avec des règles _host_ et  path_ pour rediriger le trafic vers différents services.
 :::
 
-Un _Ingress_ sert à router le traffic externe (de type HTTP/HTTPS) vers les services internes du cluster. Il s'agit d'un point d'entrée unique qui permet de gerer différents service derrière une adresse IP unique ou encore derrière un meme nom de domaine.
+Un _Ingress_ sert à router le traffic externe (de type HTTP/HTTPS) vers les services internes du cluster. Il s'agit d'un point d'entrée unique qui permet de gérer différents services derrière une adresse IP unique ou encore derrière un même nom de domaine.
 
-Un _Ingress_ utilise des règles de routage basées sur le nom de domaine ou le path pour rediriger les requêtes vers le services adequat.
+Un _Ingress_ utilise des règles de routage basées sur le nom de domaine ou le path pour rediriger les requêtes vers le service adéquat.
 
 Un _Ingress_ peux gérer le TLS dans le cadre de mise en place de connexions HTTPS.
 
-Les _Ingress_ ne sont pas fournis nativement par Kubernetes, il est necessaire d'installer un _Ingress Controller_ tel que Traefik ou encore Nginx.
+Les _Ingress_ ne sont pas fournis nativement par Kubernetes, il est nécessaire d'installer un _Ingress Controller_ tel que **Traefik** ou encore **Nginx**.
 
-Un _Ingress Controller_ est deployé par défaut sur K3S, il s'agit de Traefik. Le _Service_ correspondant à une ip de type _LoadBalancer_. Pour vous permettre de l'utiliser, un record dns de type wildcard a ete crée pour chaque groupe avec la structure suivante : *.grp-X-Y.5clo1r.in.esigoto.info. Ils sont accessible via le serveur dns interne 192.168.217.200.
+Un _Ingress Controller_ est déployé par défaut sur K3S, il s'agit de Traefik. Le _Service_ correspondant a une ip de type _LoadBalancer_. Pour vous permettre de l'utiliser, un enregistrement (_record_) DNS de type _wildcard_ a été créé pour chaque groupe avec la structure suivante : `*.grp-X-Y.5clo1r.in.esigoto.info`. 
+
+Ils sont accessibles via le serveur dns interne à l'adresse 192.168.217.200.
 
 ## Tâche 1
 
-L'application Flask utilise la variable d'environnement **BG_COLOR** afin de definir la couleur de fond de la page web. Cette variable est utilisé par la propriété CSS [background-color](https://www.w3schools.com/cssref/pr_background-color.php).
+L'application Flask utilise la variable d'environnement **BG_COLOR** afin de définir la couleur de fond de la page web. Cette variable est utilisée par la propriété CSS [background-color](https://www.w3schools.com/cssref/pr_background-color.php).
 
-De manière déclarative, créez trois _Service_ et _Deployment_ correspondant qui aurons chaqun respectivement une couleur de fond rouge, vert, bleu.
+De manière déclarative, créez trois _Service_ et _Deployment_ correspondants qui auront chacun respectivement une couleur de fond rouge, vert et bleu.
 
-Dcumentation Kubernetes : [Définir des variables d'environnement pour un Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
+Documentation Kubernetes : [Définir des variables d'environnement pour un Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)
 
 |**Exigences**
 |:--
 |Le _Service_ doit être de type _ClusterIP_
 |Le _Service_ doit exposer le port interne de l'application (TCP/5000) sur le port identique
 |Le _Label_ à utiliser sur le _Pod_ et le _selector_ du _Service_ doivent être *app.kubernetes.io/color* qui contiendra respectivement **red**, **green** et **blue**.
-|La variable d'environnement **BG_COLOR** doit etre utilisée pour obtenir un fond rouge, vert et bleu.
+|La variable d'environnement **BG_COLOR** doit être utilisée pour obtenir un fond rouge, vert et bleu.
 
-Vous pouvez valider la couleur de fond de la page web a l'aide d'un port-foward sur chaque service individuellement.
+Vous pouvez valider la couleur de fond de la page web à l'aide d'un port-foward sur chaque service individuellement.
 
 ### Exemple d'un _Deployment_ avec définition d'une variable d'environnement *MYVAR*
 
@@ -83,7 +85,7 @@ Quel est le contenu du fichier yaml pour créer les trois _Service_ ainsi que le
 
 ## Tâche 2
 
-De manière déclarative, créez un [_Ingress_](https://kubernetes.io/docs/concepts/services-networking/ingress/) pour chaqun des _Service_ et _Deployment_ créé à la tâche précédente.
+De manière déclarative, créez un [_Ingress_](https://kubernetes.io/docs/concepts/services-networking/ingress/) pour chacun des _Service_ et _Deployment_ créés à la tâche précédente.
 
 ### Exemple d'un _Ingress_ simple
 
@@ -111,26 +113,26 @@ spec:
 
 |**Exigences**
 |:--
-|Le _Path_ doit etre **/**
+|Le _Path_ doit être **/**
 |L'_Ingress Class_ à utiliser est **traefik**
 |L'annotation _traefik.ingress.kubernetes.io/frontend-entry-points_ doit avoir la valeur **http**
 |Le pattern à suivre pour le domaine à utiliser avec chaque _Ingress_ est ```<shortname>-<color>.grp-<x>-<y>.5clo1r.in.esigoto.info```
 
 :::warning Questions
-Quel est le contenu du fichier YAML pour créer les differents _Ingress_
+Quel est le contenu du fichier YAML pour créer les différents _Ingress_
 :::
 
 
 ## Tâche 3
 
-De manière déclarative, créez un unique _Ingress_ permettant d'acceder aux trois _Service_ et _Deployment_ créé à la tâche 1 via trois règles spécifique.
+De manière déclarative, créez un unique _Ingress_ permettant d'accéder aux trois _Service_ et _Deployment_ créés à la tâche 1 via trois règles spécifiques.
 
 |**Exigences**
 |:--
-|Le **path** correspondant à chaque _Service_ doit etre **/rouge**, **/vert** et **/bleu**.
+|Le **path** correspondant à chaque _Service_ doit être **/rouge**, **/vert** et **/bleu**.
 |L'_Ingress Class_ à utiliser est **traefik**
 |L'annotation _traefik.ingress.kubernetes.io/frontend-entry-points_ doit avoir la valeur **http**
-|Le pattern à suivre pour le domaine à utiliser avec chaque _Ingress_ est ```<shortname>-all.grp-<x>-<y>.5clo1r.in.esigoto.info```
+|Le pattern à suivre pour le domaine à utiliser avec chaque _Ingress_ est `<shortname>-all.grp-<x>-<y>.5clo1r.in.esigoto.info`
 
 :::warning Questions
 Quel est le contenu du fichier YAML pour créer cet unique _Ingress_ donnant accès aux différents _Service_ et _Deployment_
