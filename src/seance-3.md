@@ -80,7 +80,7 @@ Installation de [`kubectl`](https://kubernetes.io/docs/tasks/tools/) sur un ordi
 
 Pour créer le fichier de configuration nécessaire à `kubectl` sur l'ordinateur distant il est nécessaire de récupérer le fichier kubeconfig du serveur à l'aide de la commande `kubectl config view --raw` et d'y réaliser des modifications telles que ; le nom ou l'IP du serveur, le nom d'utilisateur à utiliser ainsi que le token.
 
-Le token peut être récupéré en affichant le contenu du _secret_ créé lors de la tâche précédente à l'aide de la commande `kubectl get secret <shortname>-secret -o yaml`. 
+Le token peut être récupéré en affichant le contenu du _secret_ créé lors de la tâche précédente à l'aide de la commande `kubectl get secret <secret name> -o yaml`. 
 
 :::danger
 Attention, dans un _secret_ les données sont encodées en base64.
