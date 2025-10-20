@@ -50,7 +50,7 @@ Documentation Kubernetes : [Définir des variables d'environnement pour un Conta
 |Le _Label_ à utiliser sur le _Pod_ et le _selector_ du _Service_ doivent être *app.kubernetes.io/color* qui contiendra respectivement **red**, **green** et **blue**.
 |La variable d'environnement **BG_COLOR** doit être utilisée pour obtenir un fond rouge, vert et bleu.
 
-Vous pouvez valider la couleur de fond de la page web à l'aide d'un port-foward sur chaque service individuellement.
+Vous pouvez valider la couleur de fond de la page web à l'aide d'un port-forward sur chaque service individuellement.
 
 ### Exemple d'un _Deployment_ avec définition d'une variable d'environnement *MYVAR*
 
@@ -134,7 +134,7 @@ De manière déclarative, créez un unique _Ingress_ permettant d'accéder aux t
 |L'annotation _traefik.ingress.kubernetes.io/frontend-entry-points_ doit avoir la valeur **http**
 |Le pattern à suivre pour le domaine à utiliser avec chaque _Ingress_ est `<shortname>-all.grp-<x>-<y>.5clo1r.in.esigoto.info`
 
-L'application Flask écoute sur le path /, il faut réécrire l'url. Avec un _IngressControler_ de type _traefik_, cela se fais avec un objet de type _Middleware_ qui permet de supprimer un prefixes du _Path_.
+L'application Flask écoute sur le path `/`, il faut réécrire l'url. Avec un _IngressControler_ de type _traefik_, cela se fait avec un objet de type _Middleware_ qui permet de supprimer un prefixe du _Path_.
 
 L'application du _Middleware_ se fait sur un _Ingress_ à l'aide d'une annotation spécifique. L'annotation à définir sur l'_Ingress_ est  _traefik.ingress.kubernetes.io/router.middlewares_ avec la valeur **`<namesapce>-<middleware>@kubernetescrd`**. Avec l'exemple ci-dessous cela donne la valeur **`ns-apt-k8s-labo-red@kubernetescrd`**.
 
