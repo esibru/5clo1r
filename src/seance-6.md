@@ -129,10 +129,30 @@ De manière déclarative, créez un unique _Ingress_ permettant d'accéder aux t
 
 |**Exigences**
 |:--
-|Le **path** correspondant à chaque _Service_ doit être **/rouge**, **/vert** et **/bleu**.
+|Le **path** correspondant à chaque _Service_ doit être **/red**, **/green** et **/blue**.
 |L'_Ingress Class_ à utiliser est **traefik**
 |L'annotation _traefik.ingress.kubernetes.io/frontend-entry-points_ doit avoir la valeur **http**
 |Le pattern à suivre pour le domaine à utiliser avec chaque _Ingress_ est `<shortname>-all.grp-<x>-<y>.5clo1r.in.esigoto.info`
+
+L'application Flask ecoute sur le path /, il faut réécrire l'url. Avec un _IngressControler" de type _traefik_, cela se fais avec un objet de type _Middleware_ qui permet de supprimer un prefixes du _Path_.
+
+L'application du _Middleware_ se fais sur un _Ingress_ à l'aide d'une annotation spécifique. L'annotation à définir sur l'_Ingress_ est  _traefik.ingress.kubernetes.io/router.middlewares_ avec la valeur **<namesapce>-<middleware>@kubernetescrd**. Avec l'exemple ci-dessous cela donne la valeur **ns-apt-k8s-labo-red@kubernetescrd**.
+
+### Exemples d'un _Middleware_ simple
+
+```yaml
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: k8s-labo-red
+  namespace: ns-apt
+spec:
+  stripPrefix:
+    prefixes:
+      - /red
+...
+```
 
 :::warning Questions
 Quel est le contenu du fichier YAML pour créer cet unique _Ingress_ donnant accès aux différents _Service_ et _Deployment_
