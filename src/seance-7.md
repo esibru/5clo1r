@@ -121,6 +121,7 @@ De manière déclarative, créez un _StateFulSet_ avec un volumes via un _Volume
 |Le _Volume_ doit être appelé *tmp-data*
 |Le _Volume_ doit etre accessible via le path /srv
 |Le _Volume_ doit avoir une taille de 500Mo
+|La _StorageClass_ à utiliser est *local-path*
 
 ### Exemple partiel d'un _StateFulSet_ avec un _volumeClaimTemplates_
 
