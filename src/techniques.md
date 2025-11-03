@@ -22,7 +22,7 @@
 - Volume : https://kubernetes.io/docs/concepts/storage/volumes/
 - PersistentVolumeClaims : https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims
 
-### kubectl
+### cli - kubectl
 - téléchargement : https://kubernetes.io/docs/tasks/tools/#kubectl
 - reference : https://kubernetes.io/docs/reference/kubectl/
 
