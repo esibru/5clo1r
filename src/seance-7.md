@@ -150,4 +150,6 @@ spec:
 Quel est le contenu du fichier yaml pour créer le _StateFulSet_ ?
 
 Comment sont nommés les différents _PersistentVolumeClaims_ ? Quelle est la relation entre le nom des _Pod_ ?
+
+Dans chaque replica, créez un fichier `/srv/fichier-{idReplica}`, redémarrez les _Pod_ et observez et comparer le contenu du répertoire `/srv` pour chaque _Pod_.
 :::
