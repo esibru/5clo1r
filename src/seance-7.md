@@ -86,7 +86,7 @@ spec:
 ```
 
 :::danger Remarque
-Le `storageClassName` de type `local-path` est propre à notre environnement — _k3s_ en l’occurrence. Les _StorageClass_ doivent donc être définis au préalable. 
+Le `storageClassName` de type `local-path` est propre à notre environnement — _k3s_ en l’occurrence. Les _StorageClass_ doivent donc être définis au préalable. Avec _k3s_ et _Minikube_, un _StorageClass_ de type _local-path_ est prédéfini automatiquement.  
 :::
 
 ### Exemple de _Pod_ utilisant un volume créé via un _PersistentVolumeClaims_
