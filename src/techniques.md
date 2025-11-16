@@ -21,6 +21,8 @@
 - Service : <https://kubernetes.io/docs/concepts/services-networking/service/>
 - Volume : <https://kubernetes.io/docs/concepts/storage/volumes/>
 - PersistentVolumeClaims : <https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims>
+- ConfigMap : <https://kubernetes.io/docs/concepts/configuration/configmap/>
+- Secret : <https://kubernetes.io/docs/concepts/configuration/secret/>
 
 ### cli - kubectl
 - téléchargement : <https://kubernetes.io/docs/tasks/tools/#kubectl>
