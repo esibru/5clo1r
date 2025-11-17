@@ -52,36 +52,39 @@
 <!-- Container flex pour Secrets et ConfigMap -->
 <div class="flex flex-col md:flex-row gap-4 w-full">
 
-    <!-- Secrets -->
-    <div class="bg-white shadow-lg rounded-2xl p-6 flex-1 text-left">
-        <h2 class="text-xl font-bold mb-2">🔒 Secrets Kubernetes</h2>
-        <ul class="text-gray-700">
-            <li>
-                <strong>DATABASE_URL:</strong> <span id="DATABASE_URL">*****</span>
-                <button onclick="toggleSecret('DATABASE_URL')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
-            </li>
-            <li>
-                <strong>API_KEY:</strong> <span id="API_KEY">*****</span>
-                <button onclick="toggleSecret('API_KEY')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
-            </li>
-            <li>
-                <strong>JWT_SECRET:</strong> <span id="JWT_SECRET">*****</span>
-                <button onclick="toggleSecret('JWT_SECRET')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
-            </li>
-        </ul>
-    </div>
+{% if display_secrets %}
+<div class="bg-white shadow-lg rounded-2xl p-6 flex-1 text-left">
+    <h2 class="text-xl font-bold mb-2">🔒 Secrets Kubernetes</h2>
+    <ul class="text-gray-700">
+        <li>
+            <strong>DATABASE_URL:</strong> <span id="DATABASE_URL">*****</span>
+            <button onclick="toggleSecret('DATABASE_URL')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
+        </li>
+        <li>
+            <strong>API_KEY:</strong> <span id="API_KEY">*****</span>
+            <button onclick="toggleSecret('API_KEY')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
+        </li>
+        <li>
+            <strong>JWT_SECRET:</strong> <span id="JWT_SECRET">*****</span>
+            <button onclick="toggleSecret('JWT_SECRET')" class="ml-2 bg-gray-500 text-white px-2 py-1 rounded hover:bg-gray-600">Show/Hide</button>
+        </li>
+    </ul>
+</div>
+{% endif %}
 
-    <!-- ConfigMap -->
-    <div class="bg-white shadow-lg rounded-2xl p-6 flex-1 text-left">
-        <h2 class="text-xl font-bold mb-2">🗂️ ConfigMap Kubernetes</h2>
-        <ul class="text-gray-700">
-            <li><strong>LOG_LEVEL:</strong> {{ configmap_vars.LOG_LEVEL }}</li>
-            <li><strong>MAX_CONNECTIONS:</strong> {{ configmap_vars.MAX_CONNECTIONS }}</li>
-            <li><strong>CACHE_TIMEOUT:</strong> {{ configmap_vars.CACHE_TIMEOUT }}</li>
-            <li><strong>FEATURE_FLAG_NEW_UI:</strong> {{ configmap_vars.FEATURE_FLAG_NEW_UI }}</li>
-            <li><strong>APP_CONFIG:</strong> {{ configmap_vars.APP_CONFIG }}</li>
-        </ul>
-    </div>
+<!-- ConfigMap -->
+{% if display_configmap %}
+<div class="bg-white shadow-lg rounded-2xl p-6 flex-1 text-left">
+    <h2 class="text-xl font-bold mb-2">🗂️ ConfigMap Kubernetes</h2>
+    <ul class="text-gray-700">
+        <li><strong>LOG_LEVEL:</strong> {{ configmap_vars.LOG_LEVEL }}</li>
+        <li><strong>MAX_CONNECTIONS:</strong> {{ configmap_vars.MAX_CONNECTIONS }}</li>
+        <li><strong>CACHE_TIMEOUT:</strong> {{ configmap_vars.CACHE_TIMEOUT }}</li>
+        <li><strong>FEATURE_FLAG_NEW_UI:</strong> {{ configmap_vars.FEATURE_FLAG_NEW_UI }}</li>
+        <li><strong>APP_CONFIG:</strong> {{ configmap_vars.APP_CONFIG }}</li>
+    </ul>
+</div>
+{% endif %}
 
 </div>
 

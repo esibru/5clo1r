@@ -1,11 +1,22 @@
 from flask import Flask, jsonify, render_template
 import threading, time, os
+import yaml
 
 app = Flask(__name__)
 
 # États internes
 is_alive = True
 is_ready = False
+
+def load_config():
+    try:
+        with open("config.yaml", "r") as f:
+            return yaml.safe_load(f)
+    except FileNotFoundError:
+        print("[Config] config.yaml non trouvé, valeurs par défaut utilisées")
+        return {"display": {"secrets": True, "configmap": True}}
+
+config = load_config()
 
 # Initialisation simulée
 def simulated_initialization():
@@ -62,7 +73,9 @@ def index():
         bg_color=bg_color,
         env_vars=env_vars,
         secrets=secrets,
-        configmap_vars=configmap_vars
+        configmap_vars=configmap_vars,
+        display_secrets=config["display"].get("secrets", True),
+        display_configmap=config["display"].get("configmap", True)
     )
 
 @app.route("/api/info")
