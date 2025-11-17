@@ -144,6 +144,8 @@ parent:
       list: ['item1', 'item2']
     ```
 
+_N'hésitez pas à revoir la partie consacrée à YAML dans le cours 4DOP1dr._
+
 :::
 
 Il est nécessaire de définir la variable d'environnement `KUBECONFIG` avec le _path_ vers votre fichier de configuration.
