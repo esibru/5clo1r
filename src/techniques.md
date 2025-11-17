@@ -1,6 +1,6 @@
 ## Container
 - Image : [docker.io/5clo1r/k8s-labo](docker.io/5clo1r/k8s-labo) 
-- Tag : 0.2.0
+- Tag : 0.2.1
 
 ## Probes
 ### Liveness
