@@ -4,7 +4,7 @@
 
 **ConfigMaps**
 
-Un [_ConfigMap_](https://kubernetes.io/docs/concepts/configuration/configmap/) est une ressource Kubernetes qui permet de stocker des données de configuration sous forme de paires clé-valeur et de les découpler du code des applications. Ce type de ressource est utilisée pour rendre les applications conteneurisées plus portables et plus faciles à configurer selon l'environnement, en fournissant aux conteneurs les paramètres nécessaires via des variables d'environnement ou en montant des fichiers de configuration. Cela permet de séparer le code des configurations, facilitant ainsi les mises à jour et l'adaptation à différents environnements (développement, production, etc.). 
+Un [_ConfigMap_](https://kubernetes.io/docs/concepts/configuration/configmap/) est une ressource Kubernetes qui permet de stocker des données de configuration sous forme de paires clé-valeur et de les découpler du code des applications. Ce type de ressource est utilisé pour rendre les applications conteneurisées plus portables et plus faciles à configurer selon l'environnement, en fournissant aux conteneurs les paramètres nécessaires via des variables d'environnement ou en montant des fichiers de configuration. Cela permet de séparer le code des configurations, facilitant ainsi les mises à jour et l'adaptation à différents environnements (développement, production, etc.). 
 
 Les cas d'utilisation principaux des _ConfigMap_ :
 - stockage de configurations : les _ConfigMaps_ stockent des données de configuration non sensibles, comme des adresses de services externes, des ports ou des niveaux de journalisation;
