@@ -92,7 +92,7 @@ Par exemple :
 Outre la documentation Kubernetes habituelle, la documentation des images Docker officielles sera bien utile. Par exemple : 
 
 - [Pour l'image Wordpress](https://hub.docker.com/_/wordpress)
-- [Pour l'image MSQL](https://hub.docker.com/_/msql)
+- [Pour l'image MySQL](https://hub.docker.com/_/mysql)
 
 
 
