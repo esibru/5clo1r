@@ -45,7 +45,7 @@ Déployer sur Kubernetes une application **WordPress** complète avec **MySQL**.
 Utiliser un _Deployment_ (≥2 pods) et un _Service_ pour _WordPress_ (image personnalisée). 
 Configurer un _StatefulSet_ MySQL avec _PVC_ et _Service_ exposé en _LoadBalancer_. 
 Mettre en place des _Secrets/ConfigMaps_ injectés via variables d'environnement. 
-Exposer WordPress via un _Ingress_ sous `<shortname>.grp.in.esigoto.info` où `<shortname>` est un placeholder pour votre identifiant utilisateur.
+Exposer WordPress via un _Ingress_ sous `<shortname>.grp.5clo1r.in.esigoto.info` où `<shortname>` est un placeholder pour votre identifiant utilisateur.
 
 
 |**Exigences**
@@ -61,7 +61,7 @@ Exposer WordPress via un _Ingress_ sous `<shortname>.grp.in.esigoto.info` où `<
 | Stocker les variables d'environnement dans un _ConfigMap_
 | Transmettre ces valeurs aux pods _via_ des variables d'environnement
 | Configurer un Ingress pour exposer le service WordPress
-| Utiliser un nom de domaine dans `<votre-nom>.grp.in.esigoto.info`
+| Utiliser un nom de domaine dans `<votre-nom>.grp.5clo1r.in.esigoto.info`
 | Créer votre propre image Docker avec une couche supplémentaire contenant un plugin ou un thème personnalisé pour Wordpress
 
 
