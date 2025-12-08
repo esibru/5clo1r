@@ -76,6 +76,10 @@ Vous fournirez : 
 - l'ensemble des manifestes YAML
 :::
 
+:::warning Questions
+Quand WordPress est déployé avec 2 replicas, l'interface d'administration peut poser des problèmes. Pourquoi ? Quelles sont – selon vous – les différentes pistes pour résoudre ces problèmes et permettre à l'interface d'administration de fonctionner sur un déploiement avec plusieurs replicas, tout en garantissant la cohérence et l'accès aux données et fichiers nécessaires ?
+:::
+
 :::tip Remarque
 Vous serez attentif et attentive à respecter une certaine **convention de nommage** pour tous vos objets Kubernetes. 
 
