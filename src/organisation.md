@@ -4,13 +4,35 @@ _organisation des cours / labos_
 
 Chaque séance est constituée d'une présentation de la séance avec, éventuellement, une présentation théorique et de diverses tâches à faire. 
 
-Le planning informatif se trouve ci-dessous, les tâches a faire dans les différentes sections _Séance `i`_. 
+Le planning informatif se trouve ci-dessous, les tâches à faire dans les différentes sections _Séance `i`_. 
+
+[Fiche ECTS](https://ects.esi-bru.be/online/cours/ac2526_5clo1r_5clo1r.html)
 
 :::danger
 Nous demandons de tenir à jour un rapport d'activités au fur et à mesure des séances. 
 :::
 
-[Fiche ECTS](https://ects.esi-bru.be/online/cours/ac2526_5clo1r_5clo1r.html)
+## Rapport
+
+Le rapport contient vos notes au fur et à mesure des séances. Il est à la fois votre outil d'apprentissage et — une partie — de notre outil d'évaluation. En ce sens, il devra avoir cette forme : c'est un fichier au format _markdown_ correctement structuré et facilement lisible. Les fichiers YAML que vous écrirez s'y retrouvent soit tels quels, soit sous forme de liens (et surement pas sous forme de _screenshots_).
+
+Un dépôt _git_ sera créé pour vous afin d'y déposer votre rapport. Puisque votre rapport se crée au fur et à mesure des séances, il ne fera pas l'objet d'un unique _commit_ mais bien d'un commit par séance de travail. 
+
+|**Exigences**
+|:--
+|Un seul fichier _markdown_ idéalement nommé `README.md`
+|Le rapport est **structuré** avec des titres de différents niveaux
+|Les configurations YAML sont soit inclues (entre balises ` ```yaml ``` `) ou _via_ un lien
+|Le rapport est remis _avant_ la date butoir et fait l'objet d'un _commit_ par séance de travail
+|Le rapport se trouve dans la branche `main` du dépôt qui vous a été attribué
+|Les messages de _commit_ suivent la recommandation _imperative mood_ (impératif présent et sont en anglais)
+
+
+https://docs.framasoft.org/fr/grav/markdown.html
+https://blog.namok.be/2013-11-19-billet-markdown.html
+https://daringfireball.net/projects/markdown/syntax
+https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/
+
 
 
 ## Planning
