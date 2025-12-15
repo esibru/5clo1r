@@ -63,7 +63,7 @@ Quelle commande ```kubectl``` faut-il utiliser pour réaliser un port-foward sur
 
 ## Tâche 2
 
-De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'image [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname) permettant d'y accéder via une IP de type _Load Balancer_.
+De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'image [docker.io/patteantoine/5clo1r:tagname](https://docker.io/patteantoine/5clo1r:tagname) permettant d'y accéder via une IP de type _Load Balancer_.
 
 |**Exigences**
 |:--
