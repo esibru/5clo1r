@@ -31,7 +31,7 @@ Un _Ingress_ peux gérer le TLS dans le cadre de mise en place de connexions HTT
 
 Les _Ingress_ ne sont pas fournis nativement par Kubernetes, il est nécessaire d'installer un _Ingress Controller_ tel que **Traefik** ou encore **Nginx**.
 
-Un _Ingress Controller_ est déployé par défaut sur K3S, il s'agit de Traefik. Le _Service_ correspondant a une ip de type _LoadBalancer_. Pour vous permettre de l'utiliser, un enregistrement (_record_) DNS de type _wildcard_ a été créé pour chaque groupe avec la structure suivante : `*.grp-X-Y.5clo1r.in.esigoto.info`. 
+Un _Ingress Controller_ est déployé par défaut sur K3S, il s'agit de Traefik. Le _Service_ correspondant a une ip de type _LoadBalancer_. Pour vous permettre de l'utiliser, un enregistrement (_record_) DNS de type _wildcard_ a été créé pour chaque groupe avec la structure suivante : `*.grp-X-Y.5clo1r.in.esigoto.info` (où `X-Y` représente votre groupe au sein de la classe. Par ex. 1-1). 
 
 Ils sont accessibles via le serveur dns interne à l'adresse 192.168.217.200.
 
