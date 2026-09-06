@@ -93,6 +93,28 @@ Au sein de la formation de bachelier en informatique, cette activité d’appren
 - Assurer la sécurité du système.
 
 
+## Transition Environnementale et Sociale
+
+### Éthique et neutralité du réseau
+ 
+-   Principes de neutralité du net : tous les paquets sont traités équitablement, indépendamment de leur source ou destination
+-   Réflexion critique sur la surveillance réseau : collecter uniquement les données nécessaires, éviter la collecte systématique et invasive
+-   Responsabilité des choix d'infrastructure : comprendre les impacts sociaux et éthiques, pas seulement techniques
+ 
+### Accessibilité et inclusivité
+ 
+-   Assurer que l'infrastructure réseau fonctionne pour tous les utilisateurs, y compris ceux avec des connexions limitées ou instables
+-   Rejeter les solutions qui excluent : pas de dépendance aux technologies propriétaires quand des alternatives ouvertes existent
+-   Formats ouverts et interopérabilité : privilégier les standards et formats libres pour éviter les lock-in technologiques
+ 
+### Sobriété technologique
+ 
+-   Questionner systématiquement : une solution informatique est-elle vraiment nécessaire ? Pas simplement utile, nécessaire. 
+-   Quand une solution technique est justifiée, préférer les logiciels libres et les architectures minimales à la complexité inutile
+-   Prolonger la durée de vie des infrastructures plutôt que de suivre une course technologique permanente
+ 
+Ces principes forment des administrateurs conscients que leurs choix techniques ont des impacts éthiques et sociaux concrets.
+
 
 ## Modalités d’évaluations
 
