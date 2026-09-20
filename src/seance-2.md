@@ -14,10 +14,18 @@
 
 [Installation de K3s](https://docs.k3s.io/quick-start) sur le serveur du groupe.
 
+|**Exigences**
+|:--|
+|Le service `servicelb` fournissant les service de type LoadBalancer doit être désactivé.
+|Le service IngressController `treafik` doit être désactivé.
+
 :::danger 
 Une fois l'installation de K3S réalisée, la suite des tâches est individuelle.
 :::
 
+:::warning Questions
+Comment K3S est-il installé ? comment les services sont désactivé ?
+:::
 
 ### Tâche 2
 
