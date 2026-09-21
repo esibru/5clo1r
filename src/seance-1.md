@@ -46,7 +46,7 @@ _Préparation à la séance 2_
     |Identifiant _user_ : `user` / `user`
     |Identifiant _root_ : `root` / <donné oralement>
     |Pas d'environnement graphique (évidemment)
-    |Layout de disque : une partition unique
+    |Layout de disque : une partition unique avec lvm
     |Adresse IP : cfr. document interne
     |Nom de domaine : au choix
 
