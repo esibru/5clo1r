@@ -5,7 +5,6 @@
 :::info Objectifs
 - Installation d'un environnement _kubernetes_ partagé.
 - Lancement d'un premier _Pod_.
-- Création du _NameSpace_ individuel et préparation de l'accès distant.
 :::
 
 ## Laboratoire
