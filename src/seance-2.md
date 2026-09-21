@@ -17,7 +17,7 @@
 |**Exigences**
 |:--|
 |Le service `servicelb` fournissant les service de type LoadBalancer doit être désactivé.
-|Le service IngressController `treafik` doit être désactivé.
+|Le service IngressController `traefik` doit être désactivé.
 
 :::danger 
 Une fois l'installation de K3S réalisée, la suite des tâches est individuelle.
