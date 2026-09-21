@@ -28,10 +28,10 @@ Un dépôt _git_ sera créé pour vous afin d'y déposer votre rapport. Puisque 
 |Les messages de _commit_ suivent la recommandation _imperative mood_ (impératif présent et sont en anglais)
 
 
-https://docs.framasoft.org/fr/grav/markdown.html
-https://blog.namok.be/2013-11-19-billet-markdown.html
-https://daringfireball.net/projects/markdown/syntax
-https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/
+https://docs.framasoft.org/fr/grav/markdown.html  
+https://blog.namok.be/2013-11-19-billet-markdown.html  
+https://daringfireball.net/projects/markdown/syntax  
+https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/  
 
 
 
