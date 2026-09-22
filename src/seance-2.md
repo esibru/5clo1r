@@ -23,7 +23,7 @@ Une fois l'installation de K3S réalisée, la suite des tâches est individuelle
 :::
 
 :::warning Questions
-Comment K3S est-il installé ? comment les services sont désactivé ?
+Comment K3S est-il installé ? comment les services sont désactivé ?
 :::
 
 ### Tâche 2
@@ -41,7 +41,7 @@ Un accès SSH est nécessaire pour réaliser cette tâche à distance, elle se f
 
 
 :::warning Question
-Quelle commande kubectl faut-il utiliser ?  
+Quelle commande kubectl faut-il utiliser ?  
 Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl.
 :::
 
@@ -75,7 +75,7 @@ spec:
 
 
 :::warning Questions
-Quel est le contenu du fichier YAML pour le déploiement et quelle commande kubectl faut-il utiliser ?  
+Quel est le contenu du fichier YAML pour le déploiement et quelle commande kubectl faut-il utiliser ?  
 
 Listez les différents _Pod_ dans le _NameSpace_ `default` à l'aide de la commande kubectl adéquate.
 :::
