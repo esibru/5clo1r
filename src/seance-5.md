@@ -60,8 +60,17 @@ Quel est le contenu du fichier YAML pour créer le _Service_ ainsi que le _Deplo
 Quelle commande ```kubectl``` faut-il utiliser pour réaliser un port-foward sur le _Service_ ?
 :::
 
-
 ## Tâche 2
+
+Installation du service MetalLB fournissant des IP LoadBalancer a un Service.
+
+L'installation est réaliser à l'aide Helm dans le namespace _k8s-infra-metallb_. Il ne faut avoir que une instance MetalLB dans un cluster k8s.
+
+Créer la configuration individuellement:
+- IPAddressPool correspondant à votre range
+- L2Advertisement lié au IPAddressPool précédement crée.
+
+## Tâche 3
 
 De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'image [docker.io/patteantoine/5clo1r:tagname](https://docker.io/patteantoine/5clo1r:tagname) permettant d'y accéder via une IP de type _Load Balancer_.
 
@@ -82,7 +91,7 @@ Quelle est l'ip _Load Balancer_ assignée aux services ? Comment la trouve-t-o
 Quelle est la différence entre un service de type _ClusterIP_ et un service de type _Load Balancer_ ?
 :::
 
-## Tâche 3
+## Tâche 4
 
 Faites varier le nombre de _replicas_ sur votre _Deployment_ précédemment créé.
 
