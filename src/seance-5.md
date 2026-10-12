@@ -70,6 +70,13 @@ Créer la configuration individuellement:
 - IPAddressPool correspondant à votre range
 - L2Advertisement lié au IPAddressPool précédement crée.
 
+:::warning Questions
+Comment le namespace adequat est crée ? Comment MetalLB est-il installé ? 
+
+Quel est le contenu du fichier YAML pour créer le ressource _IPAddressPool_ ainsi que le _L2Advertisement_ ?
+:::
+
+
 ## Tâche 3
 
 De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'image [docker.io/patteantoine/5clo1r:tagname](https://docker.io/patteantoine/5clo1r:tagname) permettant d'y accéder via une IP de type _Load Balancer_.
