@@ -79,11 +79,12 @@ Quel est le contenu du fichier YAML pour créer le ressource _IPAddressPool_ ain
 
 ## Tâche 3
 
-De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'image [docker.io/patteantoine/5clo1r:tagname](https://docker.io/patteantoine/5clo1r:tagname) permettant d'y accéder via une IP de type _Load Balancer_.
+De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'image [docker.io/patteantoine/5clo1r:tagname](https://docker.io/patteantoine/5clo1r:tagname) permettant d'y accéder via une IP de type _Load Balancer_ faisant partie de votre range.
 
 |**Exigences**
 |:--
 |Le _Service_ doit être de type _LoadBalancer_
+|L'IP LoadBalancer doit provenir de votre range
 |Le _Service_ doit exposer le port interne de l'application (TCP/5000) sur le second port du range qui vous est attribué
 |Les _Label_ à utiliser sur le _Pod_ et le _selector_ du _Service_ doivent être *app.kubernetes.io/name* avec la valeur *my-app* ainsi que *app.kubernetes.io/service* avec la valeur *by-load-balancer*
 |Le ou les _Pod_ de la tâche précédente ne doivent pas être sélectionnés par ce second _Service_
@@ -93,7 +94,9 @@ Quel est le contenu du fichier yaml pour créer le _Service_ ainsi que le _Deplo
 
 Quelle commande ```kubectl``` faut-il utiliser pour connaitre les différents endpoints ciblés par le _Service_ ? Expliquez l'output de la commande.
 
-Quelle est l'ip _Load Balancer_ assignée aux services ? Comment la trouve-t-on ?
+Quelle configuration spécifique faut-il réaliser sur le service pour que l'IP LoadBalancer proviennent de votre range ?
+
+Quelle est l'ip _Load Balancer_ assignée aux services ? Comment la trouve-t-on ? 
 
 Quelle est la différence entre un service de type _ClusterIP_ et un service de type _Load Balancer_ ?
 :::
