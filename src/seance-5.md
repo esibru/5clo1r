@@ -2,9 +2,9 @@
 
 **Réseau de base : Service**
 
-> _Les pods Kubernetes sont mortels : ils naissent et lorsqu'ils meurent, ils ne ressuscitent pas._ 
+> _Les pods Kubernetes sont mortels : ils naissent et meurent. Lorsqu'ils meurent, ils ne ressuscitent pas._ 
 
-Si vous utilisez un déploiement pour exécuter votre application, celui-ci peut créer et détruire dynamiquement des pods.
+Si vous utilisez un déploiement pour exécuter votre application, celui-ci peut créer et détruire dynamiquement des pods. Le déploiement est responsable du maintien du bon nombre de réplicas : il veille à ce que le bon nombre de pods existent. 
 
 Chaque pod obtient sa propre adresse IP, mais dans un déploiement, l'ensemble de pods s'exécutant en un instant peut être différent de l'ensemble de pods exécutant cette application un instant plus tard.
 
@@ -28,6 +28,12 @@ C'est là où les **services** entrent en jeu.
 Vous déployez un web service dans un cluster Kubernetes. Vous voulez l’exposer en interne en utilisant un _Service_.
 
 Un [_Service_](https://kubernetes.io/docs/concepts/services-networking/service/) Kubernetes est une couche d'abstraction qui définit un ensemble de _Pod_ et une règle pour y accéder. Il fournit un endpoint réseau stable ainsi qu’un service de répartition de charge vers les _Pod_ sélectionnés.
+
+:::tip
+Le _deployment_ veille au maintient du bon nombre de _pods_ en vie selon l'état souhaité. Le _service_ fournit un point d'accès réseau stable et distribue le trafic vers les _pods_ sélectionnés. 
+
+Les deux objets sont indépendants, mais leurs configurations se complètent.
+:::
 
 De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l’image [docker.io/patteantoine/5clo1r:tagname](docker.io/patteantoine/5clo1r:tagname)
 
@@ -62,18 +68,56 @@ Quelle commande ```kubectl``` faut-il utiliser pour réaliser un port-foward sur
 
 ## Tâche 2
 
-Installation du service MetalLB fournissant des IP LoadBalancer a un Service.
+Nous voulons exposer les services du cluster avec des IP individuelles : l'utilisatrice _alice_ expose son service avec une IP du _range_ qui lui a été attribué tandis que l'utilisateur _bob_ expose le sien avec une IP de son _range_. Pour ce faire, nous avons besoin d'un composant supplémentaire pour Kubernetes capable de fournir des IP _LoadBalancer_ à un _Service_: **MetalLB**.
 
-L'installation est réaliser à l'aide Helm dans le namespace _k8s-infra-metallb_. Il ne faut avoir que une instance MetalLB dans un cluster k8s.
+:::info
+Kubernetes définit le type `LoadBalancer` sans l'implémenter. Dans un cloud public, c'est le fournisseur qui crée le _load balancer_. Sur un _cluster_ bare-metal (ou VM), rien n'est fait (le service reste en `EXTERNAL-IP <pending>`). MetalLB comble ce manque. 
+:::
 
-Créer la configuration individuellement:
-- IPAddressPool correspondant à votre range
-- L2Advertisement lié au IPAddressPool précédement crée.
+:::warning
+Dans le cas particulier de `k3s`, cette tâche est prise en charge par `ServiceLB` en utilisant les adresses IP des nœuds… mais rappelez-vous. Nous avons choisi de le désactiver. 
+:::
+
+Installation du composant **MetalLB**.
+
+MetalLB a deux rôles : 
+- **attribuer** une IP externe au _Service_. Cette IP sera prise dans un _pool_ d'adresses;
+- **annoncer** l'IP sur le réseau.
+
+L'installation est réalisée à l'aide de **Helm** dans le namespace _k8s-infra-metallb_. Il n'y a bien sûr qu'une seule instance MetalLB dans un cluster k8s.
+
+:::tip DÉFINITION
+**Helm** est le gestionnaire de paquets de Kubernetes. Il permet d'ajouter un composant à Kubernetes. Plutôt que d'appliquer à la main une série de manifestes YAML (_Deployment_, _Service_, _ConfigMap_…), on installe une application en une seule commande.
+
+Un paquet Helm s'appelle un _chart_. C'est un ensemble de modèles (_templates_) de manifestes Kubernetes, paramétrables par un fichier `values.yaml`. Les _charts_ sont publiés dans des dépôts (_repositories_) que l'on ajoute avec `helm repo add`.
+
+Chaque installation d'un _chart_ dans le cluster crée une _release_, qui porte un nom et un numéro de révision. Helm garde l'historique des _releases_, ce qui permet de mettre à jour (`helm upgrade`), de revenir à une version précédente (`helm rollback`) ou de tout désinstaller proprement (`helm uninstall`).
+::: 
+
+Une fois MetalLB installé, il faudra le configurer individuellement: 
+
+- pour l'attribution des adresses IP, nous utilisons `IPAddressPool`.
+
+  :::info
+  Un range a été attribué à chaque personne. 
+  :::
+
+  :::warning 
+  Attention aux _namespaces_ utilisés. 
+  :::
+
+- pour l'annonce sur le réseau, il est possible de le faire en de 2 manières : 
+
+  - en mode **L2** — c'est-à-dire en couche 2 — où le nœud répond aux requêtes ARP (IPv4) et NDP (IPv6);
+  - en mode **BGP** où MetalLB annonce la route aux routeurs voisins. 
+
+  Dans notre cas, nous ne pouvons faire que le mode **L2** _via_ `L2Advertisement` lié à l'`IPAddressPool` créé précédemment.
 
 :::warning Questions
-Comment le namespace adequat est crée ? Comment MetalLB est-il installé ? 
+Comment le namespace adéquat est-il créé ?  
+Comment `MetalLB` est-il installé ? 
 
-Quel est le contenu du fichier YAML pour créer le ressource _IPAddressPool_ ainsi que le _L2Advertisement_ ?
+Quel est le contenu du fichier YAML pour créer la ressource _IPAddressPool_ ainsi que le _L2Advertisement_ ?
 :::
 
 
