@@ -30,7 +30,7 @@ Vous déployez un web service dans un cluster Kubernetes. Vous voulez l’expose
 Un [_Service_](https://kubernetes.io/docs/concepts/services-networking/service/) Kubernetes est une couche d'abstraction qui définit un ensemble de _Pod_ et une règle pour y accéder. Il fournit un endpoint réseau stable ainsi qu’un service de répartition de charge vers les _Pod_ sélectionnés.
 
 :::tip
-Le _deployment_ veille au maintient du bon nombre de _pods_ en vie selon l'état souhaité. Le _service_ fournit un point d'accès réseau stable et distribue le trafic vers les _pods_ sélectionnés. 
+Le _deployment_ veille au maintient du bon nombre de _Pods_ en vie selon l'état souhaité. Le _service_ fournit un point d'accès réseau stable et distribue le trafic vers les _Pods_ sélectionnés. 
 
 Les deux objets sont indépendants, mais leurs configurations se complètent.
 :::
@@ -57,7 +57,7 @@ spec:
 |**Exigences**
 |:--
 |Le _Service_ doit être de type _ClusterIP_
-|Le _Service_ doit exposer le port interne de l'application (TCP/5000) sur le premier port du range qui vous est attribué
+|Le _Service_ doit exposer le port interne de l'application (TCP/5000) sur un port libre. _Il faudra sans doute parler avec les autres membres du groupe._ 
 |Le _Label_ à utiliser sur le _Pod_ et le _selector_ du _Service_ doivent être *app.kubernetes.io/name* avec la valeur *my-app*
 
 :::warning Questions
@@ -68,14 +68,19 @@ Quelle commande ```kubectl``` faut-il utiliser pour réaliser un port-foward sur
 
 ## Tâche 2
 
-Nous voulons exposer les services du cluster avec des IP individuelles : l'utilisatrice _alice_ expose son service avec une IP du _range_ qui lui a été attribué tandis que l'utilisateur _bob_ expose le sien avec une IP de son _range_. Pour ce faire, nous avons besoin d'un composant supplémentaire pour Kubernetes capable de fournir des IP _LoadBalancer_ à un _Service_: **MetalLB**.
+— Un _port_ c'est moche. C'est mieux une IP — voire un nom — par service.  
+— C'est pas faux.
+
+Nous voulons exposer les services du cluster avec des IP individuelles : l'utilisatrice _alice_ expose son service avec une IP du _range_ qui lui a été attribué tandis que l'utilisateur _bob_ expose le sien avec une IP de son _range_. 
+
+Pour ce faire, nous avons besoin d'un composant supplémentaire pour Kubernetes capable de fournir des IP _LoadBalancer_ à un _Service_: [**MetalLB**](https://metallb.io/).
 
 :::info
 Kubernetes définit le type `LoadBalancer` sans l'implémenter. Dans un cloud public, c'est le fournisseur qui crée le _load balancer_. Sur un _cluster_ bare-metal (ou VM), rien n'est fait (le service reste en `EXTERNAL-IP <pending>`). MetalLB comble ce manque. 
 :::
 
 :::warning
-Dans le cas particulier de `k3s`, cette tâche est prise en charge par `ServiceLB` en utilisant les adresses IP des nœuds… mais rappelez-vous. Nous avons choisi de le désactiver. 
+Dans le cas particulier de `k3s`, cette tâche est prise en charge par `ServiceLB` en utilisant les adresses IP des nœuds… mais rappelez-vous. _Vous_ avez choisi de le désactiver. 
 :::
 
 Installation du composant **MetalLB**.
@@ -84,7 +89,7 @@ MetalLB a deux rôles :
 - **attribuer** une IP externe au _Service_. Cette IP sera prise dans un _pool_ d'adresses;
 - **annoncer** l'IP sur le réseau.
 
-L'installation est réalisée à l'aide de **Helm** dans le namespace _k8s-infra-metallb_. Il n'y a bien sûr qu'une seule instance MetalLB dans un cluster k8s.
+L'installation est réalisée à l'aide de [**Helm**](https://helm.sh/) dans le namespace _k8s-infra-metallb_. Il n'y a bien sûr qu'une seule instance MetalLB dans un cluster k8s.
 
 :::tip DÉFINITION
 **Helm** est le gestionnaire de paquets de Kubernetes. Il permet d'ajouter un composant à Kubernetes. Plutôt que d'appliquer à la main une série de manifestes YAML (_Deployment_, _Service_, _ConfigMap_…), on installe une application en une seule commande.
@@ -96,7 +101,7 @@ Chaque installation d'un _chart_ dans le cluster crée une _release_, qui porte 
 
 Une fois MetalLB installé, il faudra le configurer individuellement: 
 
-- pour l'attribution des adresses IP, nous utilisons `IPAddressPool`.
+- pour l'attribution des adresses IP, nous utilisons `IPAddressPool` ;
 
   :::info
   Un range a été attribué à chaque personne. 
@@ -106,8 +111,9 @@ Une fois MetalLB installé, il faudra le configurer individuellement:
   Attention aux _namespaces_ utilisés. 
   :::
 
-- pour l'annonce sur le réseau, il est possible de le faire en de 2 manières : 
+- pour l'annonce sur le réseau ; 
 
+  Il est possible de le faire de 2 manières : 
   - en mode **L2** — c'est-à-dire en couche 2 — où le nœud répond aux requêtes ARP (IPv4) et NDP (IPv6);
   - en mode **BGP** où MetalLB annonce la route aux routeurs voisins. 
 
@@ -129,7 +135,7 @@ De manière déclarative, créez un _Service_ qui expose un _Pod_ utilisant l'im
 |:--
 |Le _Service_ doit être de type _LoadBalancer_
 |L'IP LoadBalancer doit provenir de votre range
-|Le _Service_ doit exposer le port interne de l'application (TCP/5000) sur le second port du range qui vous est attribué
+|Le _Service_ doit exposer le port interne de l'application (TCP/5000) sur le port 80
 |Les _Label_ à utiliser sur le _Pod_ et le _selector_ du _Service_ doivent être *app.kubernetes.io/name* avec la valeur *my-app* ainsi que *app.kubernetes.io/service* avec la valeur *by-load-balancer*
 |Le ou les _Pod_ de la tâche précédente ne doivent pas être sélectionnés par ce second _Service_
 
