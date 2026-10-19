@@ -41,3 +41,10 @@
 - Concept L2 : <https://metallb.io/concepts/layer2/>
 - Installation : <https://metallb.io/installation/#installation-with-helm>
 - Configuration : <https://metallb.io/configuration/>
+
+### Gateway API
+
+- Concepts : <https://gateway-api.sigs.k8s.io/>
+- HTTPRoute : <https://gateway-api.sigs.k8s.io/api-types/httproute/>
+- Redirection et réécriture : <https://gateway-api.sigs.k8s.io/guides/http-redirect-rewrite/>
+- Envoy Gateway, installation : <https://gateway.envoyproxy.io/docs/install/install-helm/>

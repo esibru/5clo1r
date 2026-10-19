@@ -45,7 +45,7 @@ https://www.ionos.fr/digitalguide/sites-internet/developpement-web/markdown/
 | **3** | **Accèes distant** | Mettre en place l'accès distant via k8s via un token. Création du _namespace_ personnel et lancer un premier _pod_
 | **4** | **_Pods & deployments_** | Maitriser les objets de type (_kind_) _pod_ et _deployment_. <br/>Gérer l'état (_state_). <br/>Mise à l'échelle (_scalability_) | Créer des _pods_ et des  _deployments_ en YAML. <br/>Mettre à l'échelle (_scaler_). Ajouter _port forward_ pour accéder aux _pods_ créés|
 | **5** | **Services & accès** | Exposer des applications. <br/>Donner une IP et un _port forwarding_. <br/>Utiliser les labels et des sélecteurs (_selectors_). | Créer des Services (`ClusterIP`, `NodePort`). |
-| **6** | **Réseau avancé : ingress** | Gérer le trafic entrant et comprendre les _Ingress controllers_. | Déployer un _ingress_ pour router le trafic vers 2 services. _Le pod est accessible de l'extérieur_|
+| **6** | **Réseau avancé : Gateway API** | Gérer le trafic entrant et comprendre les contrôleurs Gateway API (_GatewayClass_, _Gateway_, _HTTPRoute_). | Déployer une _Gateway_ et des _HTTPRoute_ pour router le trafic vers plusieurs services. _Le pod est accessible de l'extérieur_|
 | **7** | **Stockage Persistent** | Comprendre la gestion du stockage (PV, PVC, StorageClass). | Monter un volume persistent dans un Pod. |
 | **8** | **Configuration & secrets** | Gérer la configuration (`ConfigMaps`) et les secrets. | Injecter des variables et des fichiers de configuration. |
 | **9** à **12** | **Petit projet de synthèse** ||_à déterminer_
