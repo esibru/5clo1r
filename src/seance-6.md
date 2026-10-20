@@ -78,8 +78,8 @@ Quel est le contenu du fichier YAML pour créer les trois _Service_ ainsi que le
 
 ## Tâche 2
 
-— Trois couleurs, trois IP… et demain, trente applications ?  
-— Il faudrait un portier qui lit l'adresse sur l'enveloppe.
+— Trois couleurs, trois IP… ça coûte cher en adresses IP.  
+— Il faudrait un facteur qui distribue le courrier aux bonnes adresses.
 
 Nous voulons exposer tous nos services web derrière **une seule IP** : la requête vers `red.<matricule>.5clo1r.in.esigoto.info` doit arriver sur le _Service_ rouge, celle vers `blue.<matricule>.5clo1r.in.esigoto.info` sur le _Service_ bleu, et ainsi de suite.
 
@@ -105,15 +105,15 @@ Gateway API sépare les responsabilités en plusieurs ressources :
 
 | Ressource | Portée | Rôle | Responsable typique
 |:--|:--|:--|:--
-| _GatewayClass_ | cluster | Définit l'implémentation (le contrôleur) utilisée | Fournisseur d'infrastructure
-| _Gateway_ | namespace | Point d'entrée : adresse IP, ports, protocoles (_listeners_) | Opérateur du cluster
-| _HTTPRoute_ | namespace | Règles de routage (_hostname_, _path_, en-têtes…) vers des _Service_ | Développeur de l'application
+| _GatewayClass_ | cluster | Définit l'implémentation (le contrôleur) utilisée | _Ian_, fournisseur d'infrastructure
+| _Gateway_ | namespace | Point d'entrée : adresse IP, ports, protocoles (_listeners_) | _Chihiro_, opérateur du cluster
+| _HTTPRoute_ | namespace | Règles de routage (_hostname_, _path_, en-têtes…) vers des _Service_ | _Ana_, développeuse de l'application
 
 Installation du composant **Envoy Gateway**.
 
-L'installation est réalisée à l'aide de **Helm** dans le namespace _k8s-infra-envoy-gateway_. Le _chart_ est publié dans un registre OCI (`oci://docker.io/envoyproxy/gateway-helm`) et installe également les CRD de Gateway API. Il n'y a bien sûr qu'une seule instance d'Envoy Gateway dans un cluster k8s.
+L'installation est réalisée à l'aide de **Helm** dans le namespace _k8s-infra-envoy-gateway_. Le _chart_ est publié dans un registre OCI (`oci://docker.io/envoyproxy/gateway-helm`). Il est également nécessaire d'installer les CRD de Gateway API. Il n'y a bien sûr qu'une seule instance d'**Envoy Gateway** dans un cluster k8s.
 
-Une fois Envoy Gateway installé, il faut déclarer la _GatewayClass_ qui lui est associée. La _GatewayClass_ est une ressource à l'échelle du cluster : il n'en faut qu'**une seule par cluster**, partagée par toutes les _Gateway_.
+Une fois Envoy Gateway installé, il faut déclarer la _GatewayClass_ qui lui est associée. La _GatewayClass_ est aussi une ressource à l'échelle du cluster : il n'en faut donc qu'**une seule par cluster**, partagée par toutes les _Gateway_.
 
 :::warning
 Mettez-vous d'accord avec les autres membres du groupe : une seule personne installe Envoy Gateway et crée la _GatewayClass_.
@@ -145,7 +145,7 @@ Quelles sont les CRD installées par le _chart_ ? Comment les lister ?
 
 ## Tâche 3
 
-La _GatewayClass_ dit _qui_ gère le trafic. Il faut maintenant un point d'entrée : une [**_Gateway_**](https://gateway-api.sigs.k8s.io/api-types/gateway/).
+La _GatewayClass_ dit _qui_ gère le trafic. Il faut maintenant un point d'entrée : une [**_Gateway_**](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway).
 
 Pour chaque _Gateway_ créée, Envoy Gateway déploie un _proxy_ Envoy ainsi qu'un _Service_ de type _LoadBalancer_… dont l'IP est fournie par MetalLB (cf. [séance 5](./seance-5.md)). Les composants s'empilent.
 
@@ -255,8 +255,7 @@ Quelle commande `curl` permet de tester chacune des routes ? Que se passe-t-il s
 
 ## Tâche 5
 
-— Un nom par couleur, c'est bien. Mais trois noms pour une même application…  
-— Un nom, trois chemins.
+Un nom par couleur, c'est bien mais un seul nom pour l'application avec un chemin par couleur, c'est mieux. 
 
 De manière déclarative, créez une **unique** _HTTPRoute_ permettant d'accéder aux trois _Service_ créés à la tâche 1 via trois règles spécifiques.
 

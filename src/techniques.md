@@ -45,6 +45,6 @@
 ### Gateway API
 
 - Concepts : <https://gateway-api.sigs.k8s.io/>
-- HTTPRoute : <https://gateway-api.sigs.k8s.io/api-types/httproute/>
+- HTTPRoute : <https://gateway-api.sigs.k8s.io/guides/user-guides/http-routing/>
 - Redirection et réécriture : <https://gateway-api.sigs.k8s.io/guides/http-redirect-rewrite/>
 - Envoy Gateway, installation : <https://gateway.envoyproxy.io/docs/install/install-helm/>
